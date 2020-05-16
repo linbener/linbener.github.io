@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mysql 知识点 | LIN is keeping learning</title><meta name="description" content="mysql 知识点"><meta name="keywords" content="MySQL"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="mysql 知识点"><meta name="twitter:description" content="mysql 知识点"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="mysql 知识点"><meta property="og:url" content="http://yoursite.com/2020/05/14/mysql-%E7%9F%A5%E8%AF%86%E7%82%B9/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="mysql 知识点"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/05/14/mysql-%E7%9F%A5%E8%AF%86%E7%82%B9/"><link rel="prev" title="MySQL优化" href="http://yoursite.com/2020/05/16/MySQL%E4%BC%98%E5%8C%96/"><link rel="next" title="centos学习" href="http://yoursite.com/2020/05/13/centos%E5%AD%A6%E4%B9%A0/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://linbener.github.io","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"爱国,敬业,友善,诚实,自由,平等,和谐","fontSize":"12px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'true',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: false  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">13</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">6</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">mysql 知识点</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-05-14 21:48:12"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-05-14</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-05-15 16:51:22"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-05-15</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><p>MySQL是一种数据库管理系统，DBSM。</p>
+<p>DBSM分为两种，一是基于共享文件系统的DBSM，一是基于客户机和服务器的DBSM，MySQL是后者。</p>
+<p>show databases;</p>
+<p>use database_name;</p>
+<p>show tables;</p>
+<p>show columns from table;  describe table;</p>
+<p>show status;</p>
+<p>show grants;</p>
+<p>show errors ;show warnings;</p>
+<p>show character set ;显示支持的字符集</p>
+<p>show collation; 查看支持的校对</p>
+<p>检索不同的数据</p>
+<p>select distinct column_name from table..</p>
+<p>限制数据</p>
+<p>limit n</p>
+<p>排序</p>
+<p>order by column_name [DESC降序|ASC],….</p>
+<p>过滤数据</p>
+<p>where</p>
+<p>检查单值，不匹配检查&lt;&gt; ; 范围查询between and ; 控制检查 IS NULL;</p>
+<p>组合where</p>
+<p>and  or </p>
+<p>and的优先级大于or ,如果想要or 先运算，那么要加上括号 裹住or的运算体( or  )  and ;</p>
+<p>IN操作符</p>
+<p>IN ( ,….)</p>
+<p>NOT IN (  ,…)</p>
+<p>使用通配符过滤</p>
+<p>LIKE  </p>
+<p>%  任意次数任意值   _ 下划线，单个字符</p>
+<p>where name LIKE ‘林%’ ;</p>
+<p><strong>使用正则表达式进行搜索</strong></p>
+<p>REGEXP 用法与LIKE类似</p>
+<p>where name REGEXP ‘林..’  ; 匹配name=林XX;</p>
+<p>如果匹配的数据是完整的数据时，如 LIKE ‘1000’  ;REGEXP ‘1000’</p>
+<p>LIKE 的区别REGEXP，LIKE 匹配的是整个列，如果匹配的文本在列值种出现，LIKE 找不到它，也不会返回；而正则表达式匹配的是列值，所有能返回数据，当然正则表达式也能匹配整个列。</p>
+<p>正则表达式一般不区分大小写，如果要区分大小写，要加上关键词BINARY</p>
+<p>REGEXP BINARY ‘Jet .00’ ;</p>
+<p>正则表达式的参数上网搜</p>
+<p>创建计算字段</p>
+<p>数据表中的字段通过一定的运算结合成一个新的临时字段显示</p>
+<p>拼接字段</p>
+<p>concat()   trim() Rtrim() Ltrim()</p>
+<p>select concat(cloumn,’-‘,cloumn) as name from …</p>
+<p>执行计算</p>
+<p>where column1*column2 as g from ….  能进行加减乘除基础运算</p>
+<p>SQL函数</p>
+<p>SQL函数的移植性比SQL语言低，所有如果能不使用函数，尽量不使用函数。</p>
+<p>SQL支持以下的函数</p>
+<ol>
+<li>处理文本串</li>
+<li>在数值上进行算术操作</li>
+<li>处理日期和时间值，并从中提取有效消息</li>
+<li>返回DBMS正使用的特殊信息</li>
+</ol>
+<p>1处理文本串</p>
+<p>Left() Length() Lower() Soundex() SubString() Upper() Concat() Trim() Right() </p>
+<p>2日期时间</p>
+<p>AddDate() AddTime() CurDate() CurTime() Date() Time()</p>
+<p>Hour() Minute() Second() Now() Month() Day()</p>
+<p>可以在where 字段使用</p>
+<p>3数值处理函数</p>
+<p>Abs() Cos() Exp() Mod() Pi() Rand() Sqrt() Sin()</p>
+<p>聚集函数</p>
+<p>AVG() COUNT MAX MIN SUM</p>
+<p>不能在where字段使用，只能在select字段使用</p>
+<p>分组数据</p>
+<p>GROUP BY       </p>
+<p>[WITH ROLLUP] 关键词可以得到每个分组和每个分组汇总级别的值</p>
+<p>过滤分组</p>
+<p>HAVING</p>
+<p>子查询</p>
+<p>最常用在where    …   in (select … )  中</p>
+<p>联结</p>
+<p>INNER JOIN  ON 等值联结</p>
+<p>RIGHT OUTER JOIN   …  ON</p>
+<p>组合查询</p>
+<p>UNION  ;UNION ALL ;</p>
+<p>使用全文本搜索</p>
+<p>启用全文本搜索支持</p>
+<p>text 类型的字段</p>
+<p>CREATE TABLE text1(</p>
+<p>note_id int,</p>
+<p>note_text text,</p>
+<p>…</p>
+<p><strong>FULLTEXT(note_text)</strong>    //全文本搜素支持</p>
+<p>);</p>
+<p>Match()  Against()</p>
+<p>where Match(text_name) Against(‘rac’)  ;</p>
+<p>指定text_name列进行查询，搜索包含rac关键词的行，并返回。</p>
+<p>查询扩展</p>
+<p>where Match(text_name) Against(‘rac’ WITH QUERY EXPANSION) </p>
+<p>布尔文本搜索</p>
+<p>where Match(text_name) Against(‘rac’ IN BOOLEAN MODE)  ；没有FULLTEXT索引也能使用</p>
+<p>DELETE FROM table [where ]</p>
+<p>引擎</p>
+<p>InnoDB 支持事务，不支持全文本搜索</p>
+<p>MyISAM 不支持事务，但支持全文本搜索</p>
+<p>视图VIEW</p>
+<p>使用游标</p>
+<p>DECLARE oreder_name CURSOR</p>
+<p>FOR</p>
+<p>SELECT…..;</p>
+<p>OPEN/ CLOSE oreder_name ;</p>
+<p>触发器</p>
+<p>Trgger</p>
+<p>创建触发器需要明确的4条信息</p>
+<p>唯一的触发器名</p>
+<p>触发器关联的表</p>
+<p>触发器应该响应的活动，删除，插入，更新</p>
+<p>触发器何时执行，处理之前或之后</p>
+<p>事务处理</p>
+<p>START TRANSACTION</p>
+<p>ROLLBACK /COMMIT</p>
+<p>保留点</p>
+<p>对于简单的事务，使用提交或者回滚处理；</p>
+<p>而更加复杂的事务，需要部分提交或者部分回滚。</p>
+<p>创建占位符</p>
+<p>SAVEPOINT name1;</p>
+<p>ROLLBACK TO name1;</p>
+<p>保留点越多越好，而释放保留点在事务处理之后自动释放，或者用RELEASE SAVEPOINT</p>
+<p>SET autocommit=0 设置不自动提交</p>
+<p>字符集</p>
+<p>创建表时添加字符集和校对</p>
+<p>create table xx(</p>
+<p>)default CHARACTER SET charset</p>
+<p>COLLATE 校对顺序；</p>
+<p>字段添加字符集</p>
+<p>name varchar(12) CHARACTER SET charset  COLLATE 校对顺序,</p>
+<p>安全管理</p>
+<p>MySQL用户账户和信息存储都在mysql数据库中。</p>
+<p>其中用户账户表为user;</p>
+<p>创建用户  create user name IDENTIFIED BY ‘password’ </p>
+<p>删除用户 drop user name </p>
+<p>查看用户权限 show grants for name</p>
+<p>授权  grant select on database_name.table_name to user_name</p>
+<p>删除权限revoke from </p>
+<p>数据库维护</p>
+<p>备份数据</p>
+<p>mysqldump  转储所有数据库内容到外部文件</p>
+<p>mysqlhotcopy  </p>
+<p>ANALYZE TABLE table_name 检查表的键是否正确</p>
+<p>CHECK TABLE name 检查表诸多问题</p>
+<p>诊断启动问题</p>
+<p>–help –safe-mode减去某些最佳配置     –verbose显示全文本信息与help搭配使用</p>
+<p>查看日志文件</p>
+<p>data目录中  错误日志 查询日志 二进制日志  缓慢查询日志</p>
+<p>MySQL的数据类型</p>
+<p>串数据类型 CHAR VARCHAR ENUM TEXT</p>
+<p>数值数据类型</p>
+<p>日期和时间数据类型</p>
+<p>二进制数据类型 BLOB</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/05/14/mysql-%E7%9F%A5%E8%AF%86%E7%82%B9/">http://yoursite.com/2020/05/14/mysql-%E7%9F%A5%E8%AF%86%E7%82%B9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/05/16/MySQL%E4%BC%98%E5%8C%96/"><img class="prev_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">MySQL优化</div></div></a></div><div class="next-post pull_right"><a href="/2020/05/13/centos%E5%AD%A6%E4%B9%A0/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">centos学习</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/16/MySQL优化/" title="MySQL优化"><img class="relatedPosts_cover lazyload"data-src="/img/cat.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-16</div><div class="relatedPosts_title">MySQL优化</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+document.getElementById('utterances_comment').setAttribute('theme',themeNow)
+
+function utterancesTheme () {
+var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+const message = {
+  type: 'set-theme',
+  theme: theme
+};
+const iframe = document.querySelector('.utterances-frame');
+iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
