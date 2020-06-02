@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Go语言细节 | LIN is keeping learning</title><meta name="description" content="Go语言细节"><meta name="keywords" content="GO"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Go语言细节"><meta name="twitter:description" content="Go语言细节"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="Go语言细节"><meta property="og:url" content="http://yoursite.com/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="Go语言细节"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/"><link rel="next" title="go 学习" href="http://yoursite.com/2020/05/25/go-%E5%AD%A6%E4%B9%A0/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://linbener.github.io","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"爱国,敬业,友善,诚实,自由,平等,和谐","fontSize":"12px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'true',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: false  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">15</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">Go语言细节</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-05-31 10:53:30"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-05-31</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-06-02 11:40:19"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-06-02</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><p>GO语言的大多数运算符和C一样，但是位运算符中</p>
+<p>一般语言的<strong>取反运算符</strong>是 <code>~</code> ，而GO语言的取反运算符是<strong><code>^</code>。</strong> 异或是&amp;^</p>
+<p>GO语言的封装类型 是 int uint uintptr </p>
+<ul>
+<li><p>uintptr是一个整数类型。</p>
+</li>
+<li><p>即使uintptr变量仍然有效，由uintptr变量表示的地址处的数据也可能被GC回收。</p>
+</li>
+</ul>
+<p>unsafe.Pointer是一个指针类型。</p>
+<ul>
+<li>但是unsafe.Pointer值不能被取消引用。</li>
+<li>如果unsafe.Pointer变量仍然有效，则由unsafe.Pointer变量表示的地址处的数据不会被GC回收。</li>
+</ul>
+<p><strong>unsafe.Pointer 是桥梁，可以让任意类型的指针实现相互转换，也可以将任意类型的指针转换为 uintptr 进行指针运算。</strong></p>
+<p>unsafe.Pointer称为通用指针，官方文档对该类型有四个重要描述：<br>（1）任何类型的指针都可以被转化为Pointer<br>（2）Pointer可以被转化为任何类型的指针<br>（3）uintptr可以被转化为Pointer<br>（4）Pointer可以被转化为uintptr</p>
+<p>浮点数比较一般不能用== </p>
+<p>而是相减小于P，P一般取0.00001</p>
+<p>GO语言的<strong>math</strong>包 提供一个函数让两个浮点数 比较</p>
+<p>math.Fdim(f1,f2) 返回f1 ，f2之间的差值，这个差值和P比较，如果小于证明两数相等，大于不相等。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func isEqual(f1,f2,p float64) bool&#123;</span><br><span class="line"></span><br><span class="line">return math.Fdim(f1,f2)&lt;p</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>编码问题</p>
+<p>GO语言支持UTF-8 Unicode编码</p>
+<p>如果文件代码有非ANSI字符，保存源文件时要选择UTF-8</p>
+<p>GO语言内置的包没有编码转换包，但是我们可以使用基于iconv库的Cgo包</p>
+<p>中文在UTF-8占据3个字节，Unicode中文支持两个字节，GO语言默认使用UTF-8编码</p>
+<p>单个字符，UTF-8编码方式，单个字符是byte类型，Unicode编码方式，单个字符是rune类型</p>
+<p>GO函数的不定参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">func myfunc(args...int)&#123;</span><br><span class="line">&#x2F;&#x2F;args是切片类型</span><br><span class="line">for _,value :&#x3D;range args&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">args:&#x3D;[]&#123;1,2,3&#125;</span><br><span class="line">myfunc(args...) &#x2F;&#x2F;args 后面的...不能忘掉</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<p>错误处理内置函数</p>
+<p>panic(interface{}) 报告错误，同时终止程序流程</p>
+<p>recover(interface{}) 用于终止错误处理流程，常常使用在defer关键字修饰的函数内，可以获取panic函数抛出的异常</p>
+<p>编译后，编译器操作的是变量的内存地址，所以变量的名字可以舍弃等。</p>
+<p>退化赋值</p>
+<p>在同一作用域内，使用简短模式定义变量( x := 12), 当出现两个相同变量时，后面出现的变量是赋值操作，比如常见的err变量。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">x :&#x3D;100</span><br><span class="line"></span><br><span class="line">x,y:&#x3D;10,&quot;dd&quot; &#x2F;&#x2F;x属于退化赋值，只有y变量是被定义的</span><br><span class="line"></span><br><span class="line">y:&#x3D;&quot;hello&quot;  &#x2F;&#x2F;y出现编译错误，因为只有一个变量，想要出现退化赋值，那么要出现至少一个新的变量</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>iota是golang语言的常量计数器,只能在常量的表达式中使用。</strong><br><strong>iota在const关键字出现时将被重置为0</strong></p>
+<p>在定义枚举类型时很有用</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="literal">iota</span> <span class="comment">// a=0 </span></span><br><span class="line"><span class="keyword">const</span> ( </span><br><span class="line">  b = <span class="literal">iota</span>     <span class="comment">//b=0 ，const第二次出现</span></span><br><span class="line">  c            <span class="comment">//c=1   相当于c=iota</span></span><br><span class="line">  _            <span class="comment">//_ 跳过2</span></span><br><span class="line">  _</span><br><span class="line">  g            <span class="comment">//g=4</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Allergen <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ( </span><br><span class="line">    IgEggs Allergen = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span>         <span class="comment">// 1 &lt;&lt; 0 which is 00000001 </span></span><br><span class="line">    IgChocolate                         <span class="comment">// 1 &lt;&lt; 1 which is 00000010 </span></span><br><span class="line">    IgNuts                              <span class="comment">// 1 &lt;&lt; 2 which is 00000100 </span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> ByteSize <span class="keyword">float64</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _           = <span class="literal">iota</span>                   <span class="comment">// ignore first value by assigning to blank identifier</span></span><br><span class="line">    KB ByteSize = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>) <span class="comment">// 1 &lt;&lt; (10*1)</span></span><br><span class="line">    MB                                   <span class="comment">// 1 &lt;&lt; (10*2)</span></span><br><span class="line">    GB                                   <span class="comment">// 1 &lt;&lt; (10*3)</span></span><br><span class="line">    TB                                   <span class="comment">// 1 &lt;&lt; (10*4)</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>数字常量不会分配存储空间，无法像变量那样寻址来取值</p>
+<p>常量声明</p>
+<p>无类型声明常量 </p>
+<p>有类型声明常量</p>
+<p>内置函数new / make</p>
+<p>new 按指定类型长度分配零值内存，返回指针</p>
+<p>make 引用类型必须使用这个函数创建，slice map chan</p>
+<p>类型转换，使用括号, 避免歧义</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(*int)(p)   &#x2F;&#x2F; *(int(p))</span><br><span class="line"></span><br><span class="line">(&lt;-chan int)(c) &#x2F;&#x2F; &lt;-(chan int(c))</span><br><span class="line"></span><br><span class="line">(func() int)(y)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>具有相同声明的未命名(匿名)类型被视作同一个类型。</strong></p>
+<p>比如相同基类型的指针；</p>
+<p>相同元素类型和长度的数组，切片，相同键值的字典</p>
+<p>自增 自减 不再是运算符，而是<strong>独立的表达式</strong></p>
+<p>for x:=10{</p>
+<p>x++      //编译通过</p>
+<p>y=x++ //错误 ，不可以被赋值给其他变量使用，也就是不可把它放在一个等号右边</p>
+<p>}</p>
+<p>函数</p>
+<p>命名函数类型，声明一个函数的签名</p>
+<p><code>type Mylist func(ad string)(int)</code></p>
+<p><strong>函数判断支持  仅支持判断是否为nil</strong></p>
+<p><strong>参数传递 本质上是值传递 因为引用类型是复制 指针，相当于拷贝指针，所以也是值传递</strong></p>
+<p>函数返回值可以命名，作用域是函数作用域</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">name</span><span class="params">()</span><span class="params">(ad <span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">ad:=<span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>  <span class="comment">//相当于返回ad </span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>指针和内存地址不能混为一谈</p>
+<p>指针式一个实体，指针会分配内存空间，相当于专门用来<strong>保存地址的整型变量</strong></p>
+<p>结构体标签</p>
+<p>type data struct{</p>
+<p>head int ‘this is head’ //标签用<strong>单引号</strong></p>
+<p>}</p>
+<p>方法</p>
+<p>方法集，可以得到一个结构体的全部方法 method set</p>
+<p><strong>methodSet()</strong></p>
+<p><strong>表达式 方法除了可以直接调用外，还可以赋值给变量，或者作为参数传递</strong></p>
+<p>根据具体的引用方式可以分为 method expression  ;method value</p>
+<p>method expression  通过这种方式，方法会被还原成普通函数样式，receiver是第一个参数，调用时必须显示地传参。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> N <span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(n N)</span><span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">fmt.Println(n)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">var</span> n N</span><br><span class="line"></span><br><span class="line">f1:=N.test <span class="comment">//n.test()</span></span><br><span class="line">f1(n)</span><br><span class="line"></span><br><span class="line">N.test(n) <span class="comment">//直接调用</span></span><br><span class="line"></span><br><span class="line">f2:=(*N).test <span class="comment">//(*n).test()</span></span><br><span class="line">f2(&amp;n)</span><br><span class="line"></span><br><span class="line">(*N).test(&amp;n)<span class="comment">//直接调用</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>method value 基于实例或指针引用，参数签名不会被改变，依旧按正常的方式调用</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> N <span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(n N)</span><span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">fmt.Println(n)</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">var</span> n N</span><br><span class="line">p:=&amp;n</span><br><span class="line"></span><br><span class="line">f1:=n.test</span><br><span class="line">f1()</span><br><span class="line"></span><br><span class="line">f2:=p.test</span><br><span class="line">f2()</span><br><span class="line"></span><br><span class="line">call(n.test)</span><br><span class="line">call(p.test)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">call</span><span class="params">(m <span class="keyword">func</span>()</span>)</span>&#123;</span><br><span class="line">m()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接口</p>
+<p>执行机制   使用一个名为itab的结构存储运行期所需的相关类型信息</p>
+<p>type itab struct{</p>
+<p>inter *interfacetype //接口类型</p>
+<p><code>_type *_tpye</code>   //实例对象类型</p>
+<p>func [1]uintptr  //实例对象方法地址</p>
+<p>} </p>
+<p>使用调试器可以获取相关信息 </p>
+<p>go build -gcflags”-N-I”</p>
+<p>gdb test</p>
+<p>类型转换</p>
+<p>类型推断可以将接口变量还原成原始类型，或用来判断是否实现了那个具体的接口类型</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> data <span class="keyword">int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(data)</span><span class="title">String</span><span class="params">()</span><span class="title">string</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d data=<span class="number">13</span></span><br><span class="line"><span class="keyword">var</span> x <span class="keyword">interface</span>&#123;&#125; =d</span><br><span class="line"></span><br><span class="line">n,ok:=x.(fmt.Stringer) <span class="comment">//转换成data实现了Stringer接口</span></span><br><span class="line"></span><br><span class="line">x.(data) <span class="comment">//转换成原始类型</span></span><br><span class="line"></span><br><span class="line">x.(<span class="keyword">type</span>) <span class="comment">//只能用在switch中，返回X实现的接口或类型指针</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>并发</p>
+<p>终止goroute</p>
+<p>time.Goexit()</p>
+<p>os.Exit() 不会执行延迟调用</p>
+<p>单向通道</p>
+<p>通道是双向的，但可以通过类型转换，把双向通道转变成单向的，单向通道只能接收或发送数据，不能逆向操作。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c:=<span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> send <span class="keyword">chan</span>&lt;-<span class="keyword">int</span> =c</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rece  &lt;-<span class="keyword">chan</span> <span class="keyword">int</span> =c</span><br></pre></td></tr></table></figure>
+
+
+
+<p>select操作</p>
+<p>随机选择一个通道，如果通道全部为nil，会执行default</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">a:=<span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">b:=<span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span>&#123;</span><br><span class="line"><span class="keyword">case</span>: x,ok&lt;-a:</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span>:y,ok&lt;-b:</span><br><span class="line"></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">close</span>(a)</span><br><span class="line"><span class="built_in">close</span>(b)</span><br><span class="line">a=<span class="literal">nil</span>  <span class="comment">//关闭a后，将a设置为nil select不会选择通道为空的情况</span></span><br><span class="line">b=<span class="literal">nil</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>同步，同步代码块时要注意锁的粒度，如果是读操作，可以用读锁，或者原子读操作，写操作用写锁，或者原子写操作。</p>
+<p>包结构</p>
+<p>工作空间由src bin pkg 目录组成，通常要将三个目录的地址存在到GOPATH环境变量 src存放源码，bin可执行文件安装路径，pkg包安装路径，按操作系统隔离。</p>
+<p>bin pkg目录 影响go install/get命令</p>
+<p>GOBIN 强制替代工作空间的bin目录。</p>
+<p>组织结构</p>
+<p>保留的包</p>
+<p>main</p>
+<p>all 标准库以GOPATH中能找到的全部包</p>
+<p>sed,cmd 标准库和工具链</p>
+<p>documentation</p>
+<p>内部包：只有一个包下的子包，这个子包仅能被父目录下的文件引用，导入的格式是父目录/子包。</p>
+<p>go modules</p>
+<p>反射</p>
+<p><strong>变量包括( type , value )像部分 所以nil != nil</strong></p>
+<p> type 包括了 static type , 和concrete type</p>
+<ul>
+<li>简单来说 static type是你在编码是看见的类型(如int、string)，concrete type是runtime系统看见的类型</li>
+<li>类型断言能否成功，取决于变量的concrete type，而不是static type. 因此，一个 reader变量如果它的concrete type也实现了write方法的话，它也可以被类型断言为writer.</li>
+</ul>
+<p>反射，就是建立在类型之上的，Golang的指定类型的变量的类型是静态的（也就是指定int、string这些的变量，它的type是static type），在创建变量的时候就已经确定，反射主要与Golang的interface类型相关（它的type是concrete type），只有interface类型才有反射一说。</p>
+<p>在Golang的实现中，每个interface变量都有一个对应pair，pair中记录了实际变量的值和类型（type value)</p>
+<p>value是实际变量值，type是实际变量的类型。一个interface{}类型的变量包含了2个指针，一个指针指向值的类型【对应concrete type】，另外一个指针指向实际的值【对应value】。</p>
+<p>类型 TypeOf   TypeOf用来动态获取输入参数接口中的值的类型，如果接口为空则返回nil</p>
+<p>值 ValueOf    ValueOf用来获取输入参数接口中的数据的值，如果接口为空则返回0</p>
+<p>Type为静态类型static type ； Kind为底层类型concrete type</p>
+<p>方法Elem 返回指针，数组，切片，字典，通道的基类型</p>
+<p>已知原有类型 ，从接口强制转换</p>
+<p>当执行reflect.ValueOf(interface)之后，就得到了一个类型为”relfect.Value”变量，可以通过它本身的Interface()方法获得接口变量的真实内容，然后可以通过类型判断进行转换，转换为原有真实类型。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> num <span class="keyword">float64</span> = <span class="number">1.2345</span></span><br><span class="line"></span><br><span class="line">	pointer := reflect.ValueOf(&amp;num)</span><br><span class="line">	value := reflect.ValueOf(num)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 可以理解为“强制转换”，但是需要注意的时候，转换的时候，如果转换的类型不完全符合，则直接panic</span></span><br><span class="line">	<span class="comment">// Golang 对类型要求非常严格，类型一定要完全符合</span></span><br><span class="line">	<span class="comment">// 如下两个，一个是*float64，一个是float64，如果弄混，则会panic</span></span><br><span class="line">	convertPointer := pointer.Interface().(*<span class="keyword">float64</span>)</span><br><span class="line">	convertValue := value.Interface().(<span class="keyword">float64</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(convertPointer)</span><br><span class="line">	fmt.Println(convertValue)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line"><span class="number">0xc42000e238</span></span><br><span class="line"><span class="number">1.2345</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>原有类型不知道的情况，需要遍历Filed</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="keyword">int</span></span><br><span class="line">	Name <span class="keyword">string</span></span><br><span class="line">	Age  <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span> <span class="title">ReflectCallFunc</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Allen.Wu ReflectCallFunc"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	user := User&#123;<span class="number">1</span>, <span class="string">"Allen.Wu"</span>, <span class="number">25</span>&#125;</span><br><span class="line"></span><br><span class="line">	DoFiledAndMethod(user)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过接口来获取任意参数，然后一一揭晓</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">DoFiledAndMethod</span><span class="params">(input <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	getType := reflect.TypeOf(input)</span><br><span class="line">	fmt.Println(<span class="string">"get Type is :"</span>, getType.Name())</span><br><span class="line"></span><br><span class="line">	getValue := reflect.ValueOf(input)</span><br><span class="line">	fmt.Println(<span class="string">"get all Fields is:"</span>, getValue)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取方法字段</span></span><br><span class="line">	<span class="comment">// 1. 先获取interface的reflect.Type，然后通过NumField进行遍历</span></span><br><span class="line">	<span class="comment">// 2. 再通过reflect.Type的Field获取其Field</span></span><br><span class="line">	<span class="comment">// 3. 最后通过Field的Interface()得到对应的value</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; getType.NumField(); i++ &#123;</span><br><span class="line">		field := getType.Field(i)</span><br><span class="line">		value := getValue.Field(i).Interface()</span><br><span class="line">		fmt.Printf(<span class="string">"%s: %v = %v\n"</span>, field.Name, field.Type, value)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取方法</span></span><br><span class="line">	<span class="comment">// 1. 先获取interface的reflect.Type，然后通过.NumMethod进行遍历</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; getType.NumMethod(); i++ &#123;</span><br><span class="line">		m := getType.Method(i)</span><br><span class="line">		fmt.Printf(<span class="string">"%s: %v\n"</span>, m.Name, m.Type)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">get Type is : User</span><br><span class="line">get all Fields is: &#123;<span class="number">1</span> Allen.Wu <span class="number">25</span>&#125;</span><br><span class="line">Id: <span class="keyword">int</span> = <span class="number">1</span></span><br><span class="line">Name: <span class="keyword">string</span> = Allen.Wu</span><br><span class="line">Age: <span class="keyword">int</span> = <span class="number">25</span></span><br><span class="line">ReflectCallFunc: <span class="function"><span class="keyword">func</span><span class="params">(main.User)</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>reflect.Value是通过reflect.ValueOf(X)获得的，只有当X是指针的时候，才可以通过reflec.Value修改实际变量X的值，即：要修改反射类型的对象就一定要保证其值是“addressable”的。</strong>  方法CanSet判断变量是否可写</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> num <span class="keyword">float64</span> = <span class="number">1.2345</span></span><br><span class="line">	fmt.Println(<span class="string">"old value of pointer:"</span>, num)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 通过reflect.ValueOf获取num中的reflect.Value，注意，参数必须是指针才能修改其值</span></span><br><span class="line">	pointer := reflect.ValueOf(&amp;num)</span><br><span class="line">	newValue := pointer.Elem()</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"type of pointer:"</span>, newValue.Type())</span><br><span class="line">	fmt.Println(<span class="string">"settability of pointer:"</span>, newValue.CanSet())</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重新赋值</span></span><br><span class="line">	newValue.SetFloat(<span class="number">77</span>)</span><br><span class="line">	fmt.Println(<span class="string">"new value of pointer:"</span>, num)</span><br><span class="line"></span><br><span class="line">	<span class="comment">////////////////////</span></span><br><span class="line">	<span class="comment">// 如果reflect.ValueOf的参数不是指针，会如何？</span></span><br><span class="line">	pointer = reflect.ValueOf(num)</span><br><span class="line">	<span class="comment">//newValue = pointer.Elem() // 如果非指针，这里直接panic，“panic: reflect: call of reflect.Value.Elem on float64 Value”</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">old value of pointer: <span class="number">1.2345</span></span><br><span class="line"><span class="keyword">type</span> of pointer: <span class="keyword">float64</span></span><br><span class="line">settability of pointer: <span class="literal">true</span></span><br><span class="line"><span class="built_in">new</span> value of pointer: <span class="number">77</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>方法</p>
+<p><strong>reflect.ValueOf来进行方法的调用</strong></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="keyword">int</span></span><br><span class="line">	Name <span class="keyword">string</span></span><br><span class="line">	Age  <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span> <span class="title">ReflectCallFuncHasArgs</span><span class="params">(name <span class="keyword">string</span>, age <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"ReflectCallFuncHasArgs name: "</span>, name, <span class="string">", age:"</span>, age, <span class="string">"and origal User.Name:"</span>, u.Name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u User)</span> <span class="title">ReflectCallFuncNoArgs</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"ReflectCallFuncNoArgs"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如何通过反射来进行方法的调用？</span></span><br><span class="line"><span class="comment">// 本来可以用u.ReflectCallFuncXXX直接调用的，但是如果要通过反射，那么首先要将方法注册，也就是MethodByName，然后通过反射调动mv.Call</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	user := User&#123;<span class="number">1</span>, <span class="string">"Allen.Wu"</span>, <span class="number">25</span>&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 1. 要通过反射来调用起对应的方法，必须要先通过reflect.ValueOf(interface)来获取到reflect.Value，得到“反射类型对象”后才能做下一步处理</span></span><br><span class="line">	getValue := reflect.ValueOf(user)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 一定要指定参数为正确的方法名</span></span><br><span class="line">	<span class="comment">// 2. 先看看带有参数的调用方法</span></span><br><span class="line">	methodValue := getValue.MethodByName(<span class="string">"ReflectCallFuncHasArgs"</span>)</span><br><span class="line">	args := []reflect.Value&#123;reflect.ValueOf(<span class="string">"wudebao"</span>), reflect.ValueOf(<span class="number">30</span>)&#125;</span><br><span class="line">	methodValue.Call(args)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 一定要指定参数为正确的方法名</span></span><br><span class="line">	<span class="comment">// 3. 再看看无参数的调用方法</span></span><br><span class="line">	methodValue = getValue.MethodByName(<span class="string">"ReflectCallFuncNoArgs"</span>)</span><br><span class="line">	args = <span class="built_in">make</span>([]reflect.Value, <span class="number">0</span>)</span><br><span class="line">	methodValue.Call(args)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">ReflectCallFuncHasArgs name:  wudebao , age: <span class="number">30</span> and origal User.Name: Allen.Wu</span><br><span class="line">ReflectCallFuncNoArgs</span><br></pre></td></tr></table></figure>
+
+
+
+<p>构建</p>
+<p>反射提供内置函数make ,new</p>
+<p>最有意思的是MakeFunc 能适应不同的数据类型</p>
+<p>总结：</p>
+<p>1 将原有类型 转换成接口类型，用TypeOf ValueOf</p>
+<p>2 接口类型 转换成 原来类型 Value类型转换成具体类型</p>
+<p>3 改变原有类型的值</p>
+<p>测试testing</p>
+<p>测试函数以Test为名称的前缀</p>
+<p>标准测试库testing提供了专门类型T来控制测试结果和行为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TestAdd(t *testing.T)&#123;</span><br><span class="line">ifadd(1,2)!&#x3D;3&#123;</span><br><span class="line">t.FailNow()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;go test -v</span><br></pre></td></tr></table></figure>
+
+<p>testing.T的方法</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fail</td>
+<td>失败，继续执行当前测试函数</td>
+</tr>
+<tr>
+<td>FailNow</td>
+<td>失败，立即终止当前测试函数</td>
+</tr>
+<tr>
+<td>Failed</td>
+<td></td>
+</tr>
+<tr>
+<td>SkipNow</td>
+<td>跳过，停止执行当前测试函数</td>
+</tr>
+<tr>
+<td>Skip /Skipf /Skipped</td>
+<td></td>
+</tr>
+<tr>
+<td>Log</td>
+<td>输出错误信息，</td>
+</tr>
+<tr>
+<td>Parrallel</td>
+<td>与有同样设置的测试函数并行执行</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>相当于Fail+Log</td>
+</tr>
+<tr>
+<td>Fatal</td>
+<td>相当于FaliNow+ Log</td>
+</tr>
+<tr>
+<td>Errorf /Fatal</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>go test常用参数 v parallel run timeout count</p>
+<p>run 指定测试函数，正则表达式 -run”Add”   v输出详细信息 </p>
+<p>多数据测试</p>
+<p>为测试用例提供初始化和清理操作</p>
+<p>自定义一个TestMain函数，go test会执行该函数，而不是具体的测试函数</p>
+<p>func TestMain(m *testing.M){</p>
+<p>}</p>
+<p>借助组件套件suite,借助MainStart自行构建M对象。</p>
+<p>用例函数，导入到doc文档</p>
+<p>func ExampleAdd(){</p>
+<p>//Output:    </p>
+<p>}</p>
+<p>如果没有//Output:    注释，实例函数就不会被执行</p>
+<p>性能测试函数</p>
+<p>func BeanchmarkAdd(b *testing.B){</p>
+<p>//b.N 代表数量级</p>
+<p>}</p>
+<p>测试命令 go test -bench ,参数bench会逐步提高b.N的数量级，反复测试</p>
+<p>可以用run=NONE忽略所有单元测试用例，仅测试性能</p>
+<p>测试函数执行一些额外的操作，那么应该临时阻止计时器timer工作</p>
+<p>b *testing.B对象</p>
+<p>b.StopTimer()</p>
+<p>b.StartTimer()</p>
+<p>参数-benchmem堆上的内存信息</p>
+<p>代码覆盖率分析</p>
+<p>go test -cover</p>
+<p>还有更多的细节，网上搜索</p>
+<p>性能监控</p>
+<p>go tool pprof -h</p>
+<p>在线采集检测数据注入http/pprof包</p>
+<p>工具链</p>
+<p>go build</p>
+<p>主要参数 -gcflags //编译器参数 -B禁用越界检查 -N禁用优化 -I 禁用内联-S输出汇编代码 -m输出优化信息</p>
+<p>-gcflags”-B-N”</p>
+<p>-race -n显示编译命令 -x显示正在执行的编译命令</p>
+<p>go get获取第三方包，放到工作目录</p>
+<p>go install  编译结果方法bin pkg目录</p>
+<p>交叉编译</p>
+<p>使用GOOS GOARCH</p>
+<p>编译其他系统的可执行文件</p>
+<p>条件编译</p>
+<p>使用runtime.GOOS进行判断，编译相关的文件</p>
+<p>GOOS=linux go build-x //编译名字linux的文件</p>
+<p>.go文件使用build编译指令</p>
+<p>格式：X.go文件内容</p>
+<p>//+build windows</p>
+<p>package main</p>
+<p>….</p>
+<p>预处理</p>
+<p> 使用 go generate 命令扫描源码文件，找出所有“go : generate”注释，提取其中的命令并执行</p>
+<p>格式：y.go文件</p>
+<p>//go: generate echo$GOPATH</p>
+<p>//go: generate ls</p>
+<p>包依赖管理工具</p>
+<p>Go modules 从1.13开始成为默认管理工具</p>
+<p>包的导入是相对路径，会选取GOROOT寻找标准库，GOPATH寻找工作空间的包。</p>
+<p>远程导入会把 包下载到GOPATH工作空间内。</p>
+<p>包管理工具：管理第三方的包，及存在在工作空间的包</p>
+<p>Vendor机制</p>
+<p>简单说，就是在你项目中多了一个vendor文件夹，go会把它默认作为GOPATH。让go编译时，优先从项目源码树根目录下的vendor目录查找代码(可以理解为切了一次GOPATH)，如果vendor中有，则不再去GOPATH中去查找。</p>
+<p>目前官方支持的dep</p>
+<p>初始化工程</p>
+<p>我在我的GOPATH/src下 创建文件夹，helloworld, 然后命令行进入helloworld执行 <code>dep init</code>。 执行不报错就会在文件夹下生成一个文件夹<code>vendor</code> 和两个文件 <code>Gopkg.lock</code> 、<code>Gopkg.toml</code></p>
+<p><code>Gopkg.toml</code>是依赖管理的核心文件，可以生成也可以手动修改，一般情况下<code>Gopkg.toml</code>里面只定义直接依赖项，而<code>Gopkg.lock</code>里面除了包含<code>Gopkg.toml</code>中的所有项之外，还包含传递依赖项。</p>
+<p>常用命令</p>
+<ul>
+<li><code>dep ensure</code> 这个是我们主要的命令，管理依赖,唯一一个更改磁盘状态的命令</li>
+<li><code>dep status</code> 查看项目状态，依赖状态</li>
+</ul>
+<p>Go Module</p>
+<p>go1.12 引入了 go Module，即 go 的软件包都可以声明为 module。同时淡化了GOPATH，之所以说淡化，是因为即使使用1.12版本，用户不用配置GOPATH环境变量，但是它还是以另外一种形式存在。</p>
+<p>go module 管理依赖后会在项目根目录下生成两个文件 go.mod 和 go.sum</p>
+<p><code>go.mod</code> 中会记录当前项目的所依赖</p>
+<p>go.mod 提供了<code>module</code>, <code>require</code>、<code>replace</code>和<code>exclude</code>四个命令</p>
+<ul>
+<li><p><code>module</code>语句指定包的名字（路径）</p>
+</li>
+<li><p><code>require</code>语句指定的依赖项模块</p>
+</li>
+<li><p><code>replace</code>语句可以替换依赖项模块</p>
+</li>
+<li><p><code>exclude</code>语句可以忽略依赖项模块</p>
+</li>
+</ul>
+<p><code>go.sum</code>记录每个依赖库的版本和哈希值</p>
+<p>go module 默认不在 GOPATH 目录下查找依赖文件，其首先会在<code>$GOPATH/pkg/mod</code>中查找有没有所需要的依赖，没有的直接会进行下载。可以使用 <code>go mod download</code>下载好所需要的依赖，依赖默认会下载到<code>$GOPATH/pkg/mod</code>中，其他项目也会使用缓存的 module</p>
+<p>1.12开始放弃go vet工具</p>
+<p>1.13后do doc命令被移除，需要单独下载</p>
+<p>1.13 新的逃逸分析器</p>
+<p>工具链</p>
+<p>go build &amp;&amp; ./test  //test编译出来的可执行文件</p>
+<p>go tool objdump -s “main\ .main “ test //查看编译指令</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/">http://yoursite.com/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GO/">GO</a></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/25/go-%E5%AD%A6%E4%B9%A0/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">go 学习</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+document.getElementById('utterances_comment').setAttribute('theme',themeNow)
+
+function utterancesTheme () {
+var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+const message = {
+  type: 'set-theme',
+  theme: theme
+};
+const iframe = document.querySelector('.utterances-frame');
+iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
