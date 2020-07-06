@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>html | LIN is keeping learning</title><meta name="description" content="html"><meta name="keywords" content="html"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="html"><meta name="twitter:description" content="html"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="html"><meta property="og:url" content="http://yoursite.com/2020/06/04/html/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="html"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/06/04/html/"><link rel="next" title="Go语言细节" href="http://yoursite.com/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://linbener.github.io","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"爱国,敬业,友善,诚实,自由,平等,和谐","fontSize":"12px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'true',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: false  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">16</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">html</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-06-04 21:50:00"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-06-04</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-06-06 21:35:14"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-06-06</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><p>HTML</p>
+<p>TCP/IP 协议簇：应用层协议集，比如DNS,FTP,HTTP</p>
+<p>HTTP协议</p>
+<p>方法 connect 要求使用隧道技术连接代理服务器。</p>
+<p>HTTP是无状态的，所以有了Cookie技术，让客户端保存信息，</p>
+<p>服务端根据Set-Cookie字段生成Cookie.</p>
+<p>HTTP持久化技术，目的节省流量：三次握手协议；请求管线化，客户端并发地发送HTTP请求，不必等待服务端的一一应答。</p>
+<p>HTTP报文</p>
+<p>由报文首部和报文主体组成，最初由空行（CR+LF）分隔；</p>
+<p>报文主体，实体主体</p>
+<p>报文：HTTP通信的基本单位，由8位组字节流组成。</p>
+<p>实体：作为请求和响应的有效载荷数据被传输，有实体首部和实体主体组成。</p>
+<p>内容编码</p>
+<p>传输编码：但只作用于分块传输编码中。</p>
+<p>MIME机制：发送多种数据的多部分对象集合，字段Content-Type相关，使用boundary字符串划分多种实体。</p>
+<p>实体，各种类型的数据文件，如视频文件，文本文件等。</p>
+<p>范围请求：只请求资源的一部分，字段Range相关。部分请求成功返回206。</p>
+<p><strong>内容协商</strong>：不同的语言，返回不同语言数据，accept,accept-charset,accept-encoding</p>
+<p>accept-language,content-language</p>
+<p>内容协商技术三种类型：</p>
+<p><strong>服务器驱动协商，客户端驱动协商，透明协商(前两种的结合)。</strong></p>
+<p>HTTP状态码：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1XX</td>
+<td>信息状态码</td>
+<td>正在处理请求</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>成功状态码</td>
+<td></td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>重定向状态码</td>
+<td>需要附件请求处理</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>客户端错误状态码</td>
+<td>服务端 无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>服务端错误状态码</td>
+<td>服务端 处理请求错误</td>
+</tr>
+</tbody></table>
+<p>200 </p>
+<p>204</p>
+<p>206</p>
+<p>为什么会发送重定向，因为请求的资源已经分配给新的URI了，所以旧的URI不能返回正确的资源，按照Location的提示保存新的URI信息。</p>
+<p>301 永久重定向</p>
+<p>302 临时重定向</p>
+<p>303 ，URI对应两种资源，使用GET方法重定向获取信息</p>
+<p>304 和重定向没关，为满足条件，不返回主体信息</p>
+<p>307 临时性重定向，遵照浏览器标准，不会把POST变成GET</p>
+<p>400 请求报文存在语法错误</p>
+<p>401 认证失败</p>
+<p>403 禁用，拒绝访问</p>
+<p>404 NOT FOUND</p>
+<p>500 服务端请求处理错误</p>
+<p>503 超负荷运行或停机维护，最好写入Retry-After字段</p>
+<p>WEB服务器</p>
+<p>代理：中间人</p>
+<p>网关：转发其他服务器通信数据的服务器。</p>
+<p>隧道：中转</p>
+<p>使用代理理由，减少带宽，对特定网站进行控制访问，获取访问日志。</p>
+<p>代理的基准分类：</p>
+<p>缓存代理：代理服务器预先缓存服务器处理的资源副本，当客户端请求同样的资源时，代理服务器直接返回资源。</p>
+<p>透明代理：不对报文做任何的加工处理类型的代理</p>
+<p>网关，可以提高通信的安全性，客户端和网关之间进行加密，能将HTTP请求 转换成 其他的协议请求。</p>
+<p>隧道，使用SSL等加密协议，远距离传输</p>
+<p>报文首部</p>
+<p>通用首部字段：Via，代理服务器相关信息</p>
+<p>响应首部字段: Location ,令客户端重定向至指定的URI</p>
+<p>Cache-Control: 有缓存请求指令 和  缓存响应请求</p>
+<p>Connection: 控制不再转发给代理的首部字段，管理持久连接 Connection：close | Keep-Alive</p>
+<p>Trailer: 记录了那些首部字段，在分块传输</p>
+<p>Via：为了追踪客户端和服务端之间的请求和响应报文的传输路径</p>
+<p>Accept-Encoding: gzip ,defalte ,compress ,  q表示权重</p>
+<p>From : 电子邮箱</p>
+<p>Host : 主机，必须</p>
+<p>User-Agent: 创建请求的浏览器和用户代理名称</p>
+<p>E-Tag：资源被缓存时，分配的唯一标识</p>
+<p>Retry-After: 120 3分钟后再来尝试请求</p>
+<p>Server : 告知客户端，服务器上安装的HTTP程序信息</p>
+<p>WWW-Authenticate: 用于HTTP的访问认证，401 响应中，必定带有改个字段</p>
+<p>Allow: 支持的HTTP方法</p>
+<p>Content-Length: 资源长度，字节</p>
+<p>Content-Location :资源的URI</p>
+<p>Content-MD5: </p>
+<p>Cookie相关的字段</p>
+<p>Set-Cookie ：设置cookie属性</p>
+<p>Cookie: 请求</p>
+<p>HTTP缺点：</p>
+<p>通信使用明文，不验证通信方的身份，因此可能遭遇伪装；无法证明明文的完整性，内容可能遭到篡改。</p>
+<p>不能阻止海量请求下的dos攻击，(Denial of service) 拒绝服务攻击</p>
+<p>HTTPS：HTTP和SSL组合使用</p>
+<p>也可以不使用SSL，使用TLS配合HTTP使用</p>
+<p>SSL：加密处理，和提供证书验证服务器</p>
+<p>HTTPS通信：HTTP+通信加密+证书+完整性保护</p>
+<p>确定访问用户身份的认证</p>
+<p>让特定的用户浏览网页</p>
+<p>HTTP/1.1使用的认证方式 ：WWW-Authenticate,Authorization字段相关</p>
+<p>BASIC认证</p>
+<p>DIGEST认证，摘要认证</p>
+<p>同样使用质询/响应的方式，</p>
+<p>SSL客户端认证</p>
+<p>FromBase认证，基于表单认证，最常用。</p>
+<p>HTTP的瓶颈</p>
+<p><strong>不能实时地更新服务端的内容，请求只能从客户端开始；</strong>一个连接只可以发生一个请求等。</p>
+<p>解决方法</p>
+<p>AJAX 局部更新页面，但是仍旧未解决HTTP的瓶颈</p>
+<p>SPDY的技术与功能</p>
+<p>SPDY在应用层和传输层之间，开辟了一个会话层，SPDY使用SSL通信。</p>
+<p>所以HTTP - SPDY -SSL -TCP</p>
+<p>SPDY提供的功能：多路复用流；赋予请求优先级；压缩HTTP首部；<strong>推送功能</strong>  ，及服务器向客户端发送新信息；服务器提示功能。</p>
+<p><strong>全双工通信WebSocket</strong></p>
+<p>websocket全新的协议，HTTP5标准的一部分</p>
+<p>HTTP2.0协议</p>
+<p>7项技术 : 多路复用 ；TLS义务化 ；协商 ；客户端拉/服务器推送；流量控制；websocket.</p>
+<p>WebDAV分布式文件系统</p>
+<p>构建WEB内容的技术</p>
+<p>HTML CSS 动态HTML ，及脚本语言</p>
+<p>CGI 与WEB服务器或程序协作的CGI ,是指WEB服务器接收到客户端的请求后，转发给程序的一组机制。</p>
+<p>Servlet技术普及</p>
+<p>发布更新信息的RSS/Atom 简易消息聚合 ，他们用到了XML</p>
+<p>web攻击技术</p>
+<p>主动攻击：SQL注入，OS命令注入</p>
+<p>被动攻击：</p>
+<p>目标：服务器</p>
+<p>安全漏洞：</p>
+<p>客户端的验证</p>
+<p>WEB应用端的验证：输入值验证，输出值转义</p>
+<p>跨脚本攻击XXS</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/06/04/html/">http://yoursite.com/2020/06/04/html/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/html/">html</a></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/31/Go%E8%AF%AD%E8%A8%80%E7%BB%86%E8%8A%82/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Go语言细节</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+document.getElementById('utterances_comment').setAttribute('theme',themeNow)
+
+function utterancesTheme () {
+var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+const message = {
+  type: 'set-theme',
+  theme: theme
+};
+const iframe = document.querySelector('.utterances-frame');
+iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
