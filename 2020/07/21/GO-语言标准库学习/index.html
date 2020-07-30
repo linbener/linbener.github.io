@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GO 语言标准库学习 | LIN is keeping learning</title><meta name="description" content="GO 语言标准库学习"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="GO 语言标准库学习"><meta name="twitter:description" content="GO 语言标准库学习"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="GO 语言标准库学习"><meta property="og:url" content="http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="GO 语言标准库学习"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GO 语言标准库学习 | LIN is keeping learning</title><meta name="description" content="GO 语言标准库学习"><meta name="keywords" content="GO"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="GO 语言标准库学习"><meta name="twitter:description" content="GO 语言标准库学习"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="GO 语言标准库学习"><meta property="og:url" content="http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="GO 语言标准库学习"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
 var t = Cookies.get("theme")
 if (autoChangeMode == '1'){
   var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -73,7 +73,7 @@ function activateLightMode(){
 }</script><script>var GLOBAL_CONFIG_SITE = { 
   isPost: true,
   isHome: false,
-  isSidebar: false  
+  isSidebar: true  
   }</script><noscript><style>
 #page-header {
   opacity: 1
@@ -81,7 +81,964 @@ function activateLightMode(){
 .justified-gallery img{
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">12</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">GO 语言标准库学习</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-07-21 21:54:47"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-07-21</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-07-21 21:54:47"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-07-21</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/07/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">设计模式学习</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">12</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#time库"><span class="toc-number">1.</span> <span class="toc-text">time库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体："><span class="toc-number">1.1.</span> <span class="toc-text">结构体：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用方法"><span class="toc-number">1.2.</span> <span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计时器"><span class="toc-number">1.3.</span> <span class="toc-text">计时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数"><span class="toc-number">1.4.</span> <span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用常量"><span class="toc-number">1.5.</span> <span class="toc-text">常用常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fmt库"><span class="toc-number">2.</span> <span class="toc-text">fmt库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#格式化字符串"><span class="toc-number">2.1.</span> <span class="toc-text">格式化字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scanning"><span class="toc-number">2.2.</span> <span class="toc-text">Scanning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">2.3.</span> <span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">2.4.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打印函数"><span class="toc-number">2.4.1.</span> <span class="toc-text">打印函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入函数"><span class="toc-number">2.4.2.</span> <span class="toc-text">输入函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log库"><span class="toc-number">3.</span> <span class="toc-text">log库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最重要的函数"><span class="toc-number">3.1.</span> <span class="toc-text">最重要的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logger指针的一系列方法"><span class="toc-number">3.2.</span> <span class="toc-text">Logger指针的一系列方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os库"><span class="toc-number">4.</span> <span class="toc-text">os库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规定的常量"><span class="toc-number">4.1.</span> <span class="toc-text">规定的常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统相关的函数"><span class="toc-number">4.2.</span> <span class="toc-text">系统相关的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件相关的结构体和函数"><span class="toc-number">4.3.</span> <span class="toc-text">文件相关的结构体和函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作函数"><span class="toc-number">4.4.</span> <span class="toc-text">文件操作函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File结构体"><span class="toc-number">4.5.</span> <span class="toc-text">File结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程相关的结构体-ProcAttr-Process-ProcessState"><span class="toc-number">4.6.</span> <span class="toc-text">进程相关的结构体 ProcAttr Process ProcessState</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#os-user子库"><span class="toc-number">5.</span> <span class="toc-text">os&#x2F;user子库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path包"><span class="toc-number">6.</span> <span class="toc-text">path包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的函数"><span class="toc-number">6.1.</span> <span class="toc-text">重要的函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strings包"><span class="toc-number">7.</span> <span class="toc-text">strings包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的字符操作函数"><span class="toc-number">7.1.</span> <span class="toc-text">重要的字符操作函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的结构体Reader"><span class="toc-number">7.2.</span> <span class="toc-text">重要的结构体Reader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体Replace"><span class="toc-number">7.3.</span> <span class="toc-text">结构体Replace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strconv包"><span class="toc-number">8.</span> <span class="toc-text">strconv包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重要的函数-1"><span class="toc-number">8.1.</span> <span class="toc-text">重要的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串转变成其他类型"><span class="toc-number">8.2.</span> <span class="toc-text">字符串转变成其他类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他类型转换成字符串类型"><span class="toc-number">8.3.</span> <span class="toc-text">其他类型转换成字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向byte类型的切片添加其他类型"><span class="toc-number">8.4.</span> <span class="toc-text">向byte类型的切片添加其他类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#byte包"><span class="toc-number">9.</span> <span class="toc-text">byte包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的函数"><span class="toc-number">9.1.</span> <span class="toc-text">常用的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reader"><span class="toc-number">9.2.</span> <span class="toc-text">Reader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体Buffer"><span class="toc-number">9.3.</span> <span class="toc-text">结构体Buffer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math"><span class="toc-number">10.</span> <span class="toc-text">math</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常量"><span class="toc-number">10.1.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常数"><span class="toc-number">10.2.</span> <span class="toc-text">常数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的判断方法"><span class="toc-number">10.3.</span> <span class="toc-text">常用的判断方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算函数"><span class="toc-number">10.4.</span> <span class="toc-text">运算函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math-big-math-cmplx"><span class="toc-number">11.</span> <span class="toc-text">math&#x2F;big math&#x2F;cmplx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math-rand"><span class="toc-number">12.</span> <span class="toc-text">math&#x2F;rand</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source接口"><span class="toc-number">12.1.</span> <span class="toc-text">Source接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体Rand"><span class="toc-number">12.2.</span> <span class="toc-text">结构体Rand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体Zipf"><span class="toc-number">12.3.</span> <span class="toc-text">结构体Zipf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数-1"><span class="toc-number">12.4.</span> <span class="toc-text">函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort库"><span class="toc-number">13.</span> <span class="toc-text">sort库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">13.1.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IntSlice-Float64Slice-StringSlice结构体"><span class="toc-number">13.2.</span> <span class="toc-text">IntSlice Float64Slice StringSlice结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数-1"><span class="toc-number">13.3.</span> <span class="toc-text">常用函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sync包"><span class="toc-number">14.</span> <span class="toc-text">sync包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Once结构体"><span class="toc-number">14.1.</span> <span class="toc-text">Once结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mutex-RWMutex-结构体"><span class="toc-number">14.2.</span> <span class="toc-text">Mutex RWMutex 结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cond结构体-条件变量"><span class="toc-number">14.3.</span> <span class="toc-text">Cond结构体 条件变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WaitGroup结构体"><span class="toc-number">14.4.</span> <span class="toc-text">WaitGroup结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type-pool"><span class="toc-number">14.5.</span> <span class="toc-text">type pool</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#encoding包"><span class="toc-number">15.</span> <span class="toc-text">encoding包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#encoding-csv包"><span class="toc-number">15.1.</span> <span class="toc-text">encoding&#x2F;csv包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#encoding-json"><span class="toc-number">16.</span> <span class="toc-text">encoding&#x2F;json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Number类型"><span class="toc-number">16.1.</span> <span class="toc-text">Number类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RawMessage"><span class="toc-number">16.2.</span> <span class="toc-text">RawMessage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decoder-Encoder结构体"><span class="toc-number">16.3.</span> <span class="toc-text">Decoder Encoder结构体</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">GO 语言标准库学习</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-07-21 21:54:47"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-07-21</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-07-25 15:12:28"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-07-25</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h2 id="time库"><a href="#time库" class="headerlink" title="time库"></a>time库</h2><p>time包提供了时间的显示和测量用的函数。日历计算采用<strong>公历</strong>。</p>
+<h3 id="结构体："><a href="#结构体：" class="headerlink" title="结构体："></a><strong>结构体</strong>：</h3><p>Time:代表一个纳秒精度的时间点</p>
+<p>Weekday</p>
+<p>Month</p>
+<p>Duration</p>
+<p>Timer:代表单次时间事件。当Timer到期时，当时的时间会被发送给C，除非Timer是被AfterFunc函数创建的</p>
+<p>Ticker:保管一个通道，并每隔一段时间向其传递”tick”</p>
+<p>Location:代表一个（关联到某个时间点的）地点，以及该地点所在的时区。</p>
+<p>ParseError :描述解析时间字符串时出现的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Ticker struct &#123;</span><br><span class="line">	C &lt;-chan Time &#x2F;&#x2F; The channel on which the ticks are delivered.</span><br><span class="line">	r runtimeTimer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Timer struct &#123;</span><br><span class="line">    C &lt;-chan Time</span><br><span class="line">    &#x2F;&#x2F; 内含隐藏或非导出字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">//获取当前时间，返回的是Time</span></span><br><span class="line">	now:=time.Now()</span><br><span class="line">    fmt.Println(now)</span><br><span class="line"><span class="comment">//Time结构体的函数 Day返回的是日数 此外还有常用的一些函数</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Date() Clock() Year() Month() WeekDay() Hour()</span></span><br><span class="line"><span class="comment">Equal(u Time) Local() UTC() </span></span><br><span class="line"><span class="comment">Before(u Time) After(u Time)</span></span><br><span class="line"><span class="comment">Add(d Duration) Time AddDate() Time Sub(u Time) Duration</span></span><br><span class="line"><span class="comment">Format(layout string) string格式化</span></span><br><span class="line"><span class="comment">Unix() int64 UnixNano() int64 返回时间戳，从时间点January 1, 1970 UTC到时间点t所经过的时间（单位秒）</span></span><br><span class="line"><span class="comment">Zone() Local()</span></span><br><span class="line"><span class="comment">In(loc *Location) 返回采用loc指定的地点和时区，但指向同一时间点的Time。如果loc为nil会panic</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">day:=now.Day()</span><br><span class="line"></span><br><span class="line">fmt.Println(day)</span><br></pre></td></tr></table></figure>
+
+
+<p>此外time包还有一个重要的方法，那就是将字符串转成成时间。</p>
+<p>func Parse(layout ,value string) (Time ,error)</p>
+<p>将时间戳从规定的起点开始转化成时间。</p>
+<p>func Unix(sec int64, nsec int64) Time</p>
+<p><strong>结构体Duration的方法</strong></p>
+<p>Hours() Minutes() Seconds() int64 将时间间隔转换成小时，分钟，秒。</p>
+<h3 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a><strong>计时器</strong></h3><p>Timer 和 Ticker 结构体都有同一个方法，及让计时器暂停的方法</p>
+<p><strong>Stop() bool</strong> ，Stop关闭一个Ticker，Timer，但是它不会关闭 结构体的 通道 ，以避免读取通道不正确。</p>
+<p>创造计时器的函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewTimer(d Duration) *Timer</span><br></pre></td></tr></table></figure>
+
+<p>NewTimer创建一个Timer，它会在最少过去时间段d后到期，向其自身的C字段发送当时的时间。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func AfterFunc(d Duration, f func()) *Timer</span><br></pre></td></tr></table></figure>
+
+<p>AfterFunc另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewTicker(d Duration) *Ticker</span><br></pre></td></tr></table></figure>
+
+<p>返回一个新的Ticker，该Ticker包含一个通道字段，并会每隔时间段d就向该通道发送当时的时间。它会调整时间间隔或者丢弃tick信息以适应反应慢的接收者。如果d&lt;=0会panic。关闭该Ticker可以释放相关资源</p>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a><strong>常用函数</strong></h3><p>Sleep(d Duration)  Sleep阻塞当前go程至少d代表的时间段。d&lt;=0时，Sleep会立刻返回。</p>
+<p>After(d Duration) &lt;-chan Time ; After会在另一线程经过时间段d后向返回值发送当时的时间。等价于NewTimer(d).C  相当于计时器，<strong>在规定的时间之后向单向通道填充消息</strong></p>
+<p>Tick(d Duration) &lt;-chan Time ;Tick是NewTicker的封装，只提供对Ticker的通道的访问。如果不需要关闭Ticker，本函数就很方便。</p>
+<h3 id="常用常量"><a href="#常用常量" class="headerlink" title="常用常量"></a>常用常量</h3><p>const (<br>    Nanosecond  Duration = 1<br>    Microsecond          = 1000 * Nanosecond<br>    Millisecond          = 1000 * Microsecond<br>    Second               = 1000 * Millisecond<br>    Minute               = 60 * Second<br>    Hour                 = 60 * Minute<br>)</p>
+<p>type Weekday int</p>
+<p>const (<br>    Sunday Weekday = iota<br>    Monday<br>    Tuesday<br>    Wednesday<br>    Thursday<br>    Friday<br>    Saturday<br>)</p>
+<p>type Month int</p>
+<p>const (<br>    January Month = 1 + iota<br>    February<br>    March<br>    April<br>    May<br>    June<br>    July<br>    August<br>    September<br>    October<br>    November<br>    December<br>)</p>
+<h2 id="fmt库"><a href="#fmt库" class="headerlink" title="fmt库"></a>fmt库</h2><h3 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h3><p>通用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%v	值的默认格式表示</span><br><span class="line">%+v	类似%v，但输出结构体时会添加字段名</span><br><span class="line">%#v	值的Go语法表示</span><br><span class="line">%T	值的类型的Go语法表示</span><br><span class="line">%%	百分号</span><br></pre></td></tr></table></figure>
+
+<p>布尔值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%t	单词true或false</span><br></pre></td></tr></table></figure>
+
+
+
+<p>整数，字符串，[]byte</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%q	该值对应的单引号括起来的go语法字符字面值，必要时会采用安全的转义表示</span><br></pre></td></tr></table></figure>
+
+
+
+<p>字符串，[]byte</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%s	直接输出字符串或者[]byte</span><br><span class="line">%x 每个字节用两个字符十六进制数表示</span><br><span class="line">%X</span><br></pre></td></tr></table></figure>
+
+
+
+<p>指针</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%p	表示为十六进制，并加上前导的0x</span><br></pre></td></tr></table></figure>
+
+
+
+<p>占位符索引</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fmt.Sprintf(&quot;%[2]d %[1]d\n&quot;, 11, 22)</span><br></pre></td></tr></table></figure>
+
+<p>OutPut: 22 11</p>
+<p>‘*’之前的[n]符号表示采用第n个参数的值作为宽度或精度。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fmt.Sprintf(&quot;%[3]*.[2]*[1]f&quot;, 12.0, 2, 6)</span><br><span class="line">&#x2F;&#x2F;等价于</span><br><span class="line">fmt.Sprintf(&quot;%6.2f&quot;, 12.0),</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Scanning"><a href="#Scanning" class="headerlink" title="Scanning"></a>Scanning</h3><p>一系列类似的函数可以扫描格式化文本以生成值。</p>
+<p>Scan、Scanf和Scanln从标准输入os.Stdin读取文本；Fscan、Fscanf、Fscanln从指定的io.Reader接口读取文本；Sscan、Sscanf、Sscanln从一个参数字符串读取文本。</p>
+<p>Scanln、Fscanln、Sscanln会在读取到换行时停止，并要求一次提供一行所有条目；Scanf、Fscanf、Sscanf只有在格式化文本末端有换行时会读取到换行为止；其他函数会将换行视为空白。</p>
+<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><p>Stringer</p>
+<p>GoStringer</p>
+<p>State</p>
+<p>Formatter</p>
+<p>ScanState</p>
+<p>Scanner</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type GoStringer interface &#123;</span><br><span class="line">    GoString() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义了该类型值的go语法表示。当采用verb %#v格式化一个操作数时，会调用GoString方法来生成输出的文本。</p>
+<p>State代表一个传递给自定义Formatter接口的Format方法的打印环境。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type State interface &#123;</span><br><span class="line">    &#x2F;&#x2F; Write方法用来写入格式化的文本</span><br><span class="line">    Write(b []byte) (ret int, err error)</span><br><span class="line">    &#x2F;&#x2F; Width返回宽度值，及其是否被设置</span><br><span class="line">    Width() (wid int, ok bool)</span><br><span class="line">    &#x2F;&#x2F; Precision返回精度值，及其是否被设置</span><br><span class="line">    Precision() (prec int, ok bool)</span><br><span class="line">    &#x2F;&#x2F; Flag报告是否设置了flag c（一个字符，如+、-、#等）</span><br><span class="line">    Flag(c int) bool</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Formatter interface &#123;</span><br><span class="line">    &#x2F;&#x2F; c为verb，f提供verb的细节信息和Write方法用于写入生成的格式化文本</span><br><span class="line">    Format(f State, c rune)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>ScanState代表一个将传递给Scanner接口的Scan方法的扫描环境。 </p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="打印函数"><a href="#打印函数" class="headerlink" title="打印函数"></a>打印函数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Printf(format string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fprintf(w io.Writer, format string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sprintf(format string, a ...interface&#123;&#125;) string</span><br></pre></td></tr></table></figure>
+
+
+
+<p>采用默认格式输出到标准输出</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Print(a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fprint(w io.Writer, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sprint(a ...interface&#123;&#125;) string</span><br></pre></td></tr></table></figure>
+
+<p>Sprint采用默认格式将其参数格式化，串联所有输出生成并返回一个字符串。如果两个相邻的参数都不是字符串，会在它们的输出之间添加空格。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Println(a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fprintln(w io.Writer, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sprintln(a ...interface&#123;&#125;) string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Errorf(format string, a ...interface&#123;&#125;) error</span><br></pre></td></tr></table></figure>
+
+<p>Errorf根据format参数生成格式化字符串并返回一个包含该字符串的错误。</p>
+<h4 id="输入函数"><a href="#输入函数" class="headerlink" title="输入函数"></a>输入函数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Scan(a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Scanf(format string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Scanln(a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fscan(r io.Reader, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fscanf(r io.Reader, format string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fscanln(r io.Reader, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>该函数的最大作用是提取字符串里面的值，比如整数，浮点数，或者字符</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sscan(str string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sscanf(str string, format string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sscanln(str string, a ...interface&#123;&#125;) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<p>换行视为空白</p>
+<p>例子：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">"enter two param!"</span>)</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> st <span class="keyword">string</span></span><br><span class="line">	n,err:=fmt.Scan(&amp;i,&amp;st)</span><br><span class="line">	<span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line">fmt.Println(i,st,n)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span>(</span><br><span class="line">        param1 <span class="keyword">string</span></span><br><span class="line">        param2 <span class="keyword">int</span></span><br><span class="line">        param3 <span class="keyword">float64</span></span><br><span class="line">    )</span><br><span class="line">    n, err := fmt.Sscan(<span class="string">"Fscanln 1 34.5677"</span>, &amp;param1, &amp;param2, &amp;param3)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println( n, param1, param2, param3)<span class="comment">//返回 3 Fscanln 1 34.5677</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="log库"><a href="#log库" class="headerlink" title="log库"></a>log库</h2><p>log包实现了简单的日志服务。本包定义了Logger类型，该类型提供了一些格式化输出的方法。</p>
+<p>Logger会打印每条日志信息的日期、时间，默认输出到标准错误。</p>
+<p>Fatal系列函数会在写入日志信息后调用os.Exit(1)。</p>
+<p>Panic系列函数会在写入日志信息后panic。</p>
+<p>常量</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    <span class="comment">// 字位共同控制输出日志信息的细节。不能控制输出的顺序和格式。</span></span><br><span class="line">    <span class="comment">// 在所有项目后会有一个冒号：2009/01/23 01:23:23.123123 /a/b/c/d.go:23: message</span></span><br><span class="line">    Ldate         = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span>     <span class="comment">// 日期：2009/01/23</span></span><br><span class="line">    Ltime                         <span class="comment">// 时间：01:23:23</span></span><br><span class="line">    Lmicroseconds                 <span class="comment">// 微秒分辨率：01:23:23.123123（用于增强Ltime位）</span></span><br><span class="line">    Llongfile                     <span class="comment">// 文件全路径名+行号： /a/b/c/d.go:23</span></span><br><span class="line">    Lshortfile                    <span class="comment">// 文件无路径名+行号：d.go:23（会覆盖掉Llongfile）</span></span><br><span class="line">    LstdFlags     = Ldate | Ltime <span class="comment">// 标准logger的初始值</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="最重要的函数"><a href="#最重要的函数" class="headerlink" title="最重要的函数"></a><strong>最重要的函数</strong></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func New(out io.Writer, prefix string, flag int) *Logger</span><br></pre></td></tr></table></figure>
+
+<p>New创建一个Logger。</p>
+<p>参数out设置日志信息写入的目的地。</p>
+<p>参数prefix会添加到生成的每一条日志前面。</p>
+<p>参数flag定义日志的属性（时间、文件等等）。及前面的常量，可以使用|串联多个条件。</p>
+<p><strong>第一个参数常用到的常量 os.Stdin, os.Stdout, os.Stderr</strong></p>
+<h3 id="Logger指针的一系列方法"><a href="#Logger指针的一系列方法" class="headerlink" title="Logger指针的一系列方法"></a>Logger<strong>指针的一系列方法</strong></h3><p>Flags() int ; SetFlags() ;Prefix() string ;SetPrefix()</p>
+<p>底层输出函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Output(calldepth int, s string) error</span><br></pre></td></tr></table></figure>
+
+<p>Output写入输出一次日志事件。参数s包含在Logger根据选项生成的前缀之后要打印的文本。如果s末尾没有换行会添加换行符。calldepth用于恢复PC，出于一般性而提供，但目前在所有预定义的路径上它的值都为2。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Print(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Printf(format string, v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Println(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Print调用l.Output将生成的格式化字符串输出到logger</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Fatal(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Fatalf(format string, v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Fatalln(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Fatal等价于{l.Print(v…); os.Exit(1)}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Panic(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Panicf(format string, v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (l *Logger) Panicln(v ...interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Panic等价于{l.Print(v…); panic(…)}</p>
+<h2 id="os库"><a href="#os库" class="headerlink" title="os库"></a>os库</h2><p>os包的接口规定为在所有操作系统中都是一致的。</p>
+<h3 id="规定的常量"><a href="#规定的常量" class="headerlink" title="规定的常量"></a>规定的常量</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    O_RDONLY <span class="keyword">int</span> = syscall.O_RDONLY <span class="comment">// 只读模式打开文件</span></span><br><span class="line">    O_WRONLY <span class="keyword">int</span> = syscall.O_WRONLY <span class="comment">// 只写模式打开文件</span></span><br><span class="line">    O_RDWR   <span class="keyword">int</span> = syscall.O_RDWR   <span class="comment">// 读写模式打开文件</span></span><br><span class="line">    O_APPEND <span class="keyword">int</span> = syscall.O_APPEND <span class="comment">// 写操作时将数据附加到文件尾部</span></span><br><span class="line">    O_CREATE <span class="keyword">int</span> = syscall.O_CREAT  <span class="comment">// 如果不存在将创建一个新文件</span></span><br><span class="line">    O_EXCL   <span class="keyword">int</span> = syscall.O_EXCL   <span class="comment">// 和O_CREATE配合使用，文件必须不存在</span></span><br><span class="line">    O_SYNC   <span class="keyword">int</span> = syscall.O_SYNC   <span class="comment">// 打开文件用于同步I/O</span></span><br><span class="line">    O_TRUNC  <span class="keyword">int</span> = syscall.O_TRUNC  <span class="comment">// 如果可能，打开时清空文件</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>用于包装底层系统的参数用于Open函数。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    SEEK_SET <span class="keyword">int</span> = <span class="number">0</span> <span class="comment">// 相对于文件起始位置seek</span></span><br><span class="line">    SEEK_CUR <span class="keyword">int</span> = <span class="number">1</span> <span class="comment">// 相对于文件当前位置seek</span></span><br><span class="line">    SEEK_END <span class="keyword">int</span> = <span class="number">2</span> <span class="comment">// 相对于文件结尾位置seek</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>指定Seek函数从何处开始搜索（即相对位置）</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    PathSeparator     = <span class="string">'/'</span> <span class="comment">// 操作系统指定的路径分隔符</span></span><br><span class="line">    PathListSeparator = <span class="string">':'</span> <span class="comment">// 操作系统指定的表分隔符</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">const</span> DevNull = <span class="string">"/dev/null"</span></span><br><span class="line"><span class="comment">//DevNull是操作系统空设备的名字。在类似Unix的操作系统中，是"/dev/null"；在Windows中，为"NUL"。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="系统相关的函数"><a href="#系统相关的函数" class="headerlink" title="系统相关的函数"></a>系统相关的函数</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Hostname</span><span class="params">()</span> <span class="params">(name <span class="keyword">string</span>, err error)</span> //返回内核提供的主机名</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Environ</span><span class="params">()</span> []<span class="title">string</span> //以键值的形式返回环境变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getenv</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getenv</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Clearenv</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ExpandEnv</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Expand</span><span class="params">(s <span class="keyword">string</span>, mapping <span class="keyword">func</span>(<span class="keyword">string</span>)</span> <span class="title">string</span>) <span class="title">string</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Exit</span><span class="params">(code <span class="keyword">int</span>)</span></span></span><br><span class="line"><span class="comment">//Exit让当前程序以给出的状态码code退出。一般来说，状态码0表示成功，非0表示出错。程序会立刻终止，defer的函数不会被执行。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getuid</span><span class="params">()</span> <span class="title">int</span> //<span class="title">Getuid</span>返回调用者的用户<span class="title">ID</span>。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Geteuid</span><span class="params">()</span> <span class="title">int</span> //<span class="title">Getuid</span>返回调用者的有效用户<span class="title">ID</span>。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getgid</span><span class="params">()</span> <span class="title">int</span> //返回调用者的组<span class="title">ID</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getegid</span><span class="params">()</span> <span class="title">int</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getgroups</span><span class="params">()</span> <span class="params">([]<span class="keyword">int</span>, error)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getpid</span><span class="params">()</span> <span class="title">int</span>  //返回调用者所在进程的进程<span class="title">ID</span>。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Getppid</span><span class="params">()</span> <span class="title">int</span> //返回调用者所在进程的父进程的进程<span class="title">ID</span>。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="文件相关的结构体和函数"><a href="#文件相关的结构体和函数" class="headerlink" title="文件相关的结构体和函数"></a>文件相关的结构体和函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type FileMode uint32</span><br></pre></td></tr></table></figure>
+
+<p>FileMode代表文件的模式和权限位。这些字位在所有的操作系统都有相同的含义。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const (</span><br><span class="line">    &#x2F;&#x2F; 单字符是被String方法用于格式化的属性缩写。</span><br><span class="line">    ModeDir        FileMode &#x3D; 1 &lt;&lt; (32 - 1 - iota) &#x2F;&#x2F; d: 目录</span><br><span class="line">    ModeAppend                                     &#x2F;&#x2F; a: 只能写入，且只能写入到末尾</span><br><span class="line">    ModeExclusive                                  &#x2F;&#x2F; l: 用于执行</span><br><span class="line">    ModeTemporary                                  &#x2F;&#x2F; T: 临时文件（非备份文件）</span><br><span class="line">    ModeSymlink                                    &#x2F;&#x2F; L: 符号链接（不是快捷方式文件）</span><br><span class="line">    ModeDevice                                     &#x2F;&#x2F; D: 设备</span><br><span class="line">    ModeNamedPipe                                  &#x2F;&#x2F; p: 命名管道（FIFO）</span><br><span class="line">    ModeSocket                                     &#x2F;&#x2F; S: Unix域socket</span><br><span class="line">    ModeSetuid                                     &#x2F;&#x2F; u: 表示文件具有其创建者用户id权限</span><br><span class="line">    ModeSetgid                                     &#x2F;&#x2F; g: 表示文件具有其创建者组id的权限</span><br><span class="line">    ModeCharDevice                                 &#x2F;&#x2F; c: 字符设备，需已设置ModeDevice</span><br><span class="line">    ModeSticky                                     &#x2F;&#x2F; t: 只有root&#x2F;创建者能删除&#x2F;移动文件</span><br><span class="line">    &#x2F;&#x2F; 覆盖所有类型位（用于通过&amp;获取类型位），对普通文件，所有这些位都不应被设置</span><br><span class="line">    ModeType &#x3D; ModeDir | ModeSymlink | ModeNamedPipe | ModeSocket | ModeDevice</span><br><span class="line">    ModePerm FileMode &#x3D; 0777 &#x2F;&#x2F; 覆盖所有Unix权限位（用于通过&amp;获取类型位）</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (m FileMode) IsDir() bool</span><br></pre></td></tr></table></figure>
+
+<p>IsDir报告m是否是一个目录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (m FileMode) IsRegular() bool</span><br></pre></td></tr></table></figure>
+
+<p>IsRegular报告m是否是一个普通文件。</p>
+<p><strong>FileInfo接口</strong>  FileInfo用来描述一个文件对象。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type FileInfo interface &#123;</span><br><span class="line">    Name() string       &#x2F;&#x2F; 文件的名字（不含扩展名）</span><br><span class="line">    Size() int64        &#x2F;&#x2F; 普通文件返回值表示其大小；其他文件的返回值含义各系统不同</span><br><span class="line">    Mode() FileMode     &#x2F;&#x2F; 文件的模式位</span><br><span class="line">    ModTime() time.Time &#x2F;&#x2F; 文件的修改时间</span><br><span class="line">    IsDir() bool        &#x2F;&#x2F; 等价于Mode().IsDir()</span><br><span class="line">    Sys() interface&#123;&#125;   &#x2F;&#x2F; 底层数据来源（可以返回nil）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Stat(name string) (fi FileInfo, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Stat返回一个描述name指定的文件对象的FileInfo。如果指定的文件对象是一个符号链接，返回的FileInfo描述该符号链接指向的文件的信息，本函数会尝试跳转该链接。如果出错，返回的错误值为*PathError类型。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Getwd() (dir string, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Getwd返回一个对应当前工作目录的根路径。如果当前目录可以经过多条路径抵达（因为硬链接），Getwd会返回其中一个。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Chdir(dir string) error</span><br></pre></td></tr></table></figure>
+
+<p>Chdir将当前工作目录修改为dir指定的目录。如果出错，会返回*PathError底层类型的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Chmod(name string, mode FileMode) error</span><br></pre></td></tr></table></figure>
+
+<p>Chmod修改name指定的文件对象的mode。如果name指定的文件是一个符号链接，它会修改该链接的目的地文件的mode。如果出错，会返回*PathError底层类型的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Chown(name string, uid, gid int) error</span><br></pre></td></tr></table></figure>
+
+<p>Chmod修改name指定的文件对象的用户id和组id。如果name指定的文件是一个符号链接，它会修改该链接的目的地文件的用户id和组id。如果出错，会返回*PathError底层类型的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Lchown(name string, uid, gid int) error</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Chtimes(name string, atime time.Time, mtime time.Time) error</span><br></pre></td></tr></table></figure>
+
+<p>Chtimes修改name指定的文件对象的访问时间和修改时间</p>
+<h3 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Mkdir(name string, perm FileMode) error</span><br></pre></td></tr></table></figure>
+
+<p>Mkdir使用指定的权限和名称创建一个目录。如果出错，会返回*PathError底层类型的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func MkdirAll(path string, perm FileMode) error</span><br></pre></td></tr></table></figure>
+
+<p>MkdirAll使用指定的权限和名称创建一个目录，包括任何必要的上级目录，并返回nil，否则返回错误</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Rename(oldpath, newpath string) error</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Truncate(name string, size int64) error</span><br></pre></td></tr></table></figure>
+
+<p>Truncate修改name指定的文件的大小。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Remove(name string) error</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func RemoveAll(path string) error</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Readlink(name string) (string, error)</span><br></pre></td></tr></table></figure>
+
+<p>Readlink获取name指定的符号链接文件指向的文件的路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Symlink(oldname, newname string) error</span><br></pre></td></tr></table></figure>
+
+<p>Symlink创建一个名为newname指向oldname的符号链接。通俗理解是软连接，快捷方式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func SameFile(fi1, fi2 FileInfo) bool</span><br></pre></td></tr></table></figure>
+
+<p>SameFile返回fi1和fi2是否在描述同一个文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TempDir() string</span><br></pre></td></tr></table></figure>
+
+<p>TempDir返回一个用于保管临时文件的默认目录。</p>
+<h3 id="File结构体"><a href="#File结构体" class="headerlink" title="File结构体"></a>File结构体</h3><p>File代表一个打开的文件对象。</p>
+<p><strong>重要的函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Create(name string) (file *File, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Open(name string) (file *File, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func OpenFile(name string, flag int, perm FileMode) (file *File, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewFile(fd uintptr, name string) *File</span><br></pre></td></tr></table></figure>
+
+<p>NewFile使用给出的Unix文件描述符和名称创建一个文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Pipe() (r *File, w *File, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Pipe返回一对关联的文件对象。从r的读取将返回写入w的数据。本函数会返回两个文件对象和可能的错误。</p>
+<p><strong>结构体方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Name() string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Stat() (fi FileInfo, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Fd() uintptr Fd返回与文件f对应的整数类型的Unix文件描述符。</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Chdir() error</span><br></pre></td></tr></table></figure>
+
+<p>Chdir将当前工作目录修改为f，f必须是一个目录。如果出错，错误底层类型是*PathError。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Chmod(mode FileMode) error</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Chown(uid, gid int) error</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Readdir(n int) (fi []FileInfo, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Readdir读取目录f的内容，返回一个有n个成员的[]FileInfo，这些FileInfo是被Lstat返回的，采用目录顺序。对本函数的下一次调用会返回上一次调用剩余未读取的内容的信息。</p>
+<p>如果n&lt;=0，Readdir函数返回目录中剩余所有文件对象的FileInfo构成的切片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Readdirnames(n int) (names []string, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Truncate(size int64) error</span><br></pre></td></tr></table></figure>
+
+<p>修改文件的大小</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Read(b []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) ReadAt(b []byte, off int64) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<p>从指定位置读取文件内容，Read方法从f中读取最多len(b)字节数据并写入b。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Write(b []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Write向文件中写入len(b)字节数据。它返回写入的字节数和可能遇到的任何错误。如果返回值n!=len(b)，本方法会返回一个非nil的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) WriteString(s string) (ret int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) WriteAt(b []byte, off int64) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Seek(offset int64, whence int) (ret int64, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Seek设置下一次读/写的位置。offset为相对偏移量，而whence决定相对位置：0为相对文件开头，1为相对当前位置，2为相对文件结尾。它返回新的偏移量（相对开头）和可能的错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Sync() (err error)</span><br></pre></td></tr></table></figure>
+
+<p>Sync递交文件的当前内容进行稳定的存储。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (f *File) Close() error</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="进程相关的结构体-ProcAttr-Process-ProcessState"><a href="#进程相关的结构体-ProcAttr-Process-ProcessState" class="headerlink" title="进程相关的结构体 ProcAttr Process ProcessState"></a>进程相关的结构体 ProcAttr Process ProcessState</h3><h2 id="os-user子库"><a href="#os-user子库" class="headerlink" title="os/user子库"></a>os/user子库</h2><p>User代表一个用户帐户。</p>
+<p>在posix系统中Uid和Gid字段分别包含代表uid和gid的十进制数字。在windows系统中Uid和Gid包含字符串格式的安全标识符（SID）。在Plan 9系统中，Uid、Gid、Username和Name字段是/dev/user的内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type User struct &#123;</span><br><span class="line">    Uid      string &#x2F;&#x2F; 用户ID</span><br><span class="line">    Gid      string &#x2F;&#x2F; 初级组ID</span><br><span class="line">    Username string</span><br><span class="line">    Name     string</span><br><span class="line">    HomeDir  string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Current() (*User, error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Lookup(username string) (*User, error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func LookupId(uid string) (*User, error)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="path包"><a href="#path包" class="headerlink" title="path包"></a>path包</h2><p>path实现了对斜杠分隔的路径的实用操作函数。</p>
+<h3 id="重要的函数"><a href="#重要的函数" class="headerlink" title="重要的函数"></a>重要的函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IsAbs(path string) bool</span><br></pre></td></tr></table></figure>
+
+<p>IsAbs返回路径是否是一个绝对路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Split(path string) (dir, file string)</span><br></pre></td></tr></table></figure>
+
+<p>Split函数将路径从最后一个斜杠后面位置分隔为两个部分（dir和file）并返回。如果路径中没有斜杠，函数返回值dir会设为空字符串，file会设为path。两个返回值满足path == dir+file。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Join(elem ...string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fmt.Println(path.Join(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))&#x2F;&#x2F; a&#x2F;b&#x2F;c</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Dir(path string) string</span><br></pre></td></tr></table></figure>
+
+<p>Dir返回路径除去最后一个路径元素的部分，即该路径最后一个元素所在的目录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Base(path string) string</span><br></pre></td></tr></table></figure>
+
+<p>Base函数返回路径的最后一个元素。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Ext(path string) string</span><br></pre></td></tr></table></figure>
+
+<p>Ext函数返回path文件扩展名。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Clean(path string) string</span><br></pre></td></tr></table></figure>
+
+<p>Clean函数通过单纯的词法操作返回和path代表同一地址的最短路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Match(pattern, name string) (matched bool, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="strings包"><a href="#strings包" class="headerlink" title="strings包"></a>strings包</h2><p>strings包实现了用于操作字符的简单函数。</p>
+<h3 id="重要的字符操作函数"><a href="#重要的字符操作函数" class="headerlink" title="重要的字符操作函数"></a>重要的字符操作函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func EqualFold(s, t string) bool</span><br></pre></td></tr></table></figure>
+
+<p>判断两个utf-8编码字符串（将unicode大写、小写、标题三种格式字符视为相同）是否相同。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func HasPrefix(s, prefix string) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func HasSuffix(s, suffix string) bool</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Contains(s, substr string) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ContainsRune(s string, r rune) bool</span><br></pre></td></tr></table></figure>
+
+<p>判断字符串s是否包含utf-8码值r。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ContainsAny(s, chars string) bool</span><br></pre></td></tr></table></figure>
+
+<p>判断字符串s是否包含字符串chars中的任一字符。如果都是空串返回的是false, chars是空串也会返回false.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Count(s, sep string) int</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串s中有几个不重复的sep子串。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Index(s, sep string) int</span><br></pre></td></tr></table></figure>
+
+<p>字符c在s中第一次出现的位置，不存在则返回-1。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IndexRune(s string, r rune) int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IndexAny(s, chars string) int</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IndexFunc(s string, f func(rune) bool) int</span><br></pre></td></tr></table></figure>
+
+<p>s中第一个满足函数f的位置i（该处的utf-8码值r满足f(r)==true），不存在则返回-1。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func LastIndex(s, sep string) int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func LastIndexAny(s, chars string) int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func LastIndexFunc(s string, f func(rune) bool) int</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Title(s string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ToLower(s string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ToUpper(s string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ToTitle(s string) string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Repeat(s string, count int) string</span><br><span class="line">&#x2F;&#x2F;fmt.Println(&quot;ba&quot; + strings.Repeat(&quot;na&quot;, 2))</span><br><span class="line">&#x2F;&#x2F;banana</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Replace(s, old, new string, n int) string</span><br></pre></td></tr></table></figure>
+
+<p>返回将s中前n个不重叠old子串都替换为new的新字符串，如果n&lt;0会替换所有old子串。</p>
+<p>n=-1，替换全部字串</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Map(mapping func(rune) rune, s string) string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Trim(s string, cutset string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimSpace(s string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimFunc(s string, f func(rune) bool) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimLeft(s string, cutset string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimLeftFunc(s string, f func(rune) bool) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimPrefix(s, prefix string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func TrimSuffix(s, suffix string) string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fields(s string) []string</span><br></pre></td></tr></table></figure>
+
+<p>返回将字符串按照空白（unicode.IsSpace确定，可以是一到多个连续的空白字符）分割的多个字符串。如果字符串全部是空白或者是空字符串的话，会返回空切片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func FieldsFunc(s string, f func(rune) bool) []string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Split(s, sep string) []string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func SplitN(s, sep string, n int) []string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n &gt; 0 : 返回的切片最多n个子字符串；最后一个子字符串包含未进行切割的部分。</span><br><span class="line">n &#x3D;&#x3D; 0: 返回nil</span><br><span class="line">n &lt; 0 : 返回所有的子字符串组成的切片</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func SplitAfter(s, sep string) []string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func SplitAfterN(s, sep string, n int) []string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Join(a []string, sep string) string</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="重要的结构体Reader"><a href="#重要的结构体Reader" class="headerlink" title="重要的结构体Reader"></a>重要的结构体Reader</h3><p>Reader类型通过从一个字符串读取数据，实现了io.Reader、io.Seeker、io.ReaderAt、io.WriterTo、io.ByteScanner、io.RuneScanner接口。</p>
+<p><strong>构造函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewReader(s string) *Reader</span><br></pre></td></tr></table></figure>
+
+<p>本函数类似bytes.NewBufferString，但是更有效率，且为只读的。</p>
+<p>Reader的方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) Len() int</span><br></pre></td></tr></table></figure>
+
+<p>Len返回r包含的字符串还没有被读取的部分。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) Read(b []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) ReadByte() (b byte, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) UnreadByte() error</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) ReadRune() (ch rune, size int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) Seek(offset int64, whence int) (int64, error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) ReadAt(b []byte, off int64) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Reader) WriteTo(w io.Writer) (n int64, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="结构体Replace"><a href="#结构体Replace" class="headerlink" title="结构体Replace"></a>结构体Replace</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewReplacer(oldnew ...string) *Replacer</span><br></pre></td></tr></table></figure>
+
+<p>使用提供的多组old、new字符串对创建并返回一个*Replacer。替换是依次进行的，匹配时不会重叠。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">r :&#x3D; strings.NewReplacer(&quot;&lt;&quot;, &quot;&lt;&quot;, &quot;&gt;&quot;, &quot;&gt;&quot;) &#x2F;&#x2F;第一组&quot;&lt;&quot;, &quot;&lt;&quot;</span><br><span class="line">fmt.Println(r.Replace(&quot;This is &lt;b&gt;HTML&lt;&#x2F;b&gt;!&quot;))</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Replacer) Replace(s string) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Replacer) WriteString(w io.Writer, s string) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="strconv包"><a href="#strconv包" class="headerlink" title="strconv包"></a>strconv包</h2><p>strconv包实现了基本数据类型和其字符串表示的相互转换。</p>
+<p><strong>重要的知识</strong></p>
+<p>Go 语言中字符串的可以使用双引号 (“) 或者反引号 (`) 来创建。</p>
+<p><strong>双引号用来创建可解析的字符串字面量</strong>，所谓可解析的是指字符串中的一些符号可以被格式化为其他内容，如 \n 在在输出时候会被格式化成换行符，如果需要按照原始字符输出必须进行转义。</p>
+<p>而<strong>反引号创建的字符串原始是什么样，那输出还是什么，不需要进行任何转义</strong>。</p>
+<p>Go 语言中的字符串是 UTF-8 字符的一个序列（当字符为 ASCII 码时则占用 1 个字节，其它字符根据需要占用 2-4 个字节）。</p>
+<p>在 Go 语言中支持两个字符类型，一个是 Byte（实际上是 Unit8 的别名），代表 UTF-8 字符串的单个字节的值；另一个是 rune，是Uint32的别名，代表单个 Unicode 字符。</p>
+<h3 id="重要的函数-1"><a href="#重要的函数-1" class="headerlink" title="重要的函数"></a>重要的函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IsPrint(r rune) bool</span><br></pre></td></tr></table></figure>
+
+<p>返回一个字符是否是可打印的，和unicode.IsPrint一样，r必须是：字母（广义）、数字、标点、符号、ASCII空格。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Quote(s string) string</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串s在go语法下的双引号字面值表示，控制字符、不可打印字符会进行转义。（如\t，\n，\xFF，\u0100）</p>
+<h3 id="字符串转变成其他类型"><a href="#字符串转变成其他类型" class="headerlink" title="字符串转变成其他类型"></a>字符串转变成其他类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ParseBool(str string) (value bool, err error)</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串表示的bool值。它接受1、0、t、f、T、F、true、false、True、False、TRUE、FALSE；否则返回错误。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ParseInt(s string, base int, bitSize int) (i int64, err error)</span><br></pre></td></tr></table></figure>
+
+<p>返回字符串表示的整数值，接受正负号。</p>
+<p>ase指定进制（2到36），如果base为0，则会从字符串前置判断，”0x”是16进制，”0”是8进制，否则是10进制；</p>
+<p>bitSize指定结果必须能无溢出赋值的整数类型，0、8、16、32、64 分别代表 int、int8、int16、int32、int64。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ParseFloat(s string, bitSize int) (f float64, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Atoi(s string) (i int, err error)</span><br></pre></td></tr></table></figure>
+
+<p>Atoi是ParseInt(s, 10, 0)的简写。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Itoa(i int) string</span><br></pre></td></tr></table></figure>
+
+<p>Itoa是FormatInt(i, 10) 的简写。</p>
+<h3 id="其他类型转换成字符串类型"><a href="#其他类型转换成字符串类型" class="headerlink" title="其他类型转换成字符串类型"></a>其他类型转换成字符串类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func FormatBool(b bool) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func FormatInt(i int64, base int) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func FormatUint(i uint64, base int) string</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func FormatFloat(f float64, fmt byte, prec, bitSize int) string</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="向byte类型的切片添加其他类型"><a href="#向byte类型的切片添加其他类型" class="headerlink" title="向byte类型的切片添加其他类型"></a>向byte类型的切片添加其他类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func AppendBool(dst []byte, b bool) []byte</span><br></pre></td></tr></table></figure>
+
+<p>等价于append(dst, FormatBool(b)…)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func AppendInt(dst []byte, i int64, base int) []byte</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="byte包"><a href="#byte包" class="headerlink" title="byte包"></a>byte包</h2><p>bytes包实现了操作[]byte的常用函数。本包的函数和strings包的函数相当类似。</p>
+<h3 id="常用的函数"><a href="#常用的函数" class="headerlink" title="常用的函数"></a>常用的函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Compare(a, b []byte) int</span><br></pre></td></tr></table></figure>
+
+<p>Compare函数返回一个整数表示两个[]byte切片按字典序比较的结果（类同C的strcmp）。如果a==b返回0；如果a&lt;b返回-1；否则返回+1。nil参数视为空切片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Equal(a, b []byte) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func EqualFold(s, t []byte) bool</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Runes(s []byte) []rune</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func HasPrefix(s, prefix []byte) bool</span><br></pre></td></tr></table></figure>
+
+<p>判断s是否有前缀切片prefix。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func HasSuffix(s, suffix []byte) bool</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Contains(b, subslice []byte) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Count(s, sep []byte) int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Index(s, sep []byte) int</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func ToLower(s []byte) []byte</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Repeat(b []byte, count int) []byte</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Replace(s, old, new []byte, n int) []byte</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Map(mapping func(r rune) rune, s []byte) []byte</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Trim(s []byte, cutset string) []byte</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Fields(s []byte) [][]byte</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Split(s, sep []byte) [][]byte</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Join(s [][]byte, sep []byte) []byte</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewReader(b []byte) *Reader</span><br></pre></td></tr></table></figure>
+
+<p>其余方法和strings的类似</p>
+<h3 id="结构体Buffer"><a href="#结构体Buffer" class="headerlink" title="结构体Buffer"></a>结构体Buffer</h3><p>Buffer是一个实现了读写方法的可变大小的字节缓冲。本类型的零值是一个空的可用于读写的缓冲。</p>
+<p><strong>重要的构造函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewBuffer(buf []byte) *Buffer</span><br></pre></td></tr></table></figure>
+
+<p>buf应为一个具有指定容量但长度为0的切片。</p>
+<p>new(Buffer)（或只是声明一个Buffer类型变量）就足以初始化一个Buffer了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewBufferString(s string) *Buffer</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Reset()</span><br></pre></td></tr></table></figure>
+
+<p>Reset重设缓冲，因此会丢弃全部内容，等价于b.Truncate(0)。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Len() int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Bytes() []byte</span><br></pre></td></tr></table></figure>
+
+<p>返回未读取部分字节数据的切片</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) String() string</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Grow(n int)</span><br></pre></td></tr></table></figure>
+
+<p>必要时会增加缓冲的容量，以保证n字节的剩余空间。调用Grow(n)后至少可以向缓冲中写入n字节数据而无需申请内存。如果n小于零或者不能增加容量都会panic。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Read(p []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Next(n int) []byte</span><br></pre></td></tr></table></figure>
+
+<p>返回未读取部分前n字节数据的切片，并且移动读取位置，就像调用了Read方法一样。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) ReadByte() (c byte, err error)</span><br></pre></td></tr></table></figure>
+
+<p>ReadByte读取并返回缓冲中的下一个字节。如果没有数据可用，返回值err为io.EOF。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) UnreadByte() error</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) ReadBytes(delim byte) (line []byte, err error)</span><br></pre></td></tr></table></figure>
+
+<p>ReadBytes读取直到第一次遇到delim字节，返回一个包含已读取的数据和delim字节的切片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) Write(p []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) ReadFrom(r io.Reader) (n int64, err error)</span><br></pre></td></tr></table></figure>
+
+<p>ReadFrom从r中读取数据直到结束并将读取的数据写入缓冲中，如必要会增加缓冲容量。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (b *Buffer) WriteTo(w io.Writer) (n int64, err error)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="math"><a href="#math" class="headerlink" title="math"></a>math</h2><p><strong>注意了，几乎所有的方法传入的参数类型都是float32</strong></p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>比如E,Pi，Ln2,Ln10,log2E,Sqrt2等</p>
+<h3 id="常数"><a href="#常数" class="headerlink" title="常数"></a>常数</h3><p>MaxFloat32    SmallestNonzeroFloat32</p>
+<p>MaxInt8= 1&lt;&lt;7-1</p>
+<p>MinInt8= -1&lt;&lt;7</p>
+<p>MaxUint8= 1&lt;&lt;8-1</p>
+<h3 id="常用的判断方法"><a href="#常用的判断方法" class="headerlink" title="常用的判断方法"></a>常用的判断方法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NaN() float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IsNaN(f float64) (is bool)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Inf(sign int) float64</span><br></pre></td></tr></table></figure>
+
+<p>如果sign&gt;=0函数返回正无穷大，否则返回负无穷大。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IsInf(f float64, sign int) bool</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Float32bits(f float32) uint32</span><br></pre></td></tr></table></figure>
+
+<p>函数返回浮点数f的IEEE 754格式二进制表示对应的4字节无符号整数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Signbit(x float64) bool</span><br></pre></td></tr></table></figure>
+
+<p>如果x是一个负数或者负零，返回真。</p>
+<h3 id="运算函数"><a href="#运算函数" class="headerlink" title="运算函数"></a>运算函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Ceil(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Floor(x float64) float64</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Trunc(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<p>返回x的整数部分（的浮点值）。特例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Modf(f float64) (int float64, frac float64)</span><br></pre></td></tr></table></figure>
+
+<p>返回f的整数部分和小数部分，结果的正负号和都x相同；特例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Abs(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Max(x, y float64) float64</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Dim(x, y float64) float64</span><br></pre></td></tr></table></figure>
+
+<p>函数返回x-y和0中的最大值，特殊情况：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Mod(x, y float64) float64</span><br></pre></td></tr></table></figure>
+
+<p>取余运算</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sqrt(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Cbrt(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<p>返回X的三次方根</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Hypot(p, q float64) float64</span><br></pre></td></tr></table></figure>
+
+<p>返回q<em>q+p</em>p</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Log(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Log2(x float64) float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Pow(x, y float64) float64</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>此后还有三角函数和其他的函数</strong></p>
+<h2 id="math-big-math-cmplx"><a href="#math-big-math-cmplx" class="headerlink" title="math/big math/cmplx"></a>math/big math/cmplx</h2><p>math/big 提供了大数运算函数</p>
+<p>math/cmplx 提供了复数相关的函数运行</p>
+<h2 id="math-rand"><a href="#math-rand" class="headerlink" title="math/rand"></a>math/rand</h2><p>rand包实现了伪随机数生成器。</p>
+<p><strong>随机数从资源生成。</strong>包水平的函数都使用的默认的公共资源。该资源会在程序每次运行时都产生确定的序列。如果需要每次运行产生不同的序列，应使用Seed函数进行初始化。默认资源可以安全的用于多go程并发。</p>
+<h3 id="Source接口"><a href="#Source接口" class="headerlink" title="Source接口"></a>Source接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Source interface &#123;</span><br><span class="line">    Int63() int64</span><br><span class="line">    Seed(seed int64)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Source代表一个生成均匀分布在范围[0, 1&lt;&lt;63)的int64值的（伪随机的）资源。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewSource(seed int64) Source</span><br></pre></td></tr></table></figure>
+
+<p>使用给定的种子创建一个伪随机资源。</p>
+<h3 id="结构体Rand"><a href="#结构体Rand" class="headerlink" title="结构体Rand"></a>结构体Rand</h3><p><strong>构造函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func New(src Source) *Rand</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Seed(seed int64)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Int() int</span><br></pre></td></tr></table></figure>
+
+<p>返回一个非负的整数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Int31() int32</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Int63() int64</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Intn(n int) int</span><br></pre></td></tr></table></figure>
+
+<p>返回一个取值范围在[0,n)的伪随机int值，如果n&lt;=0会panic。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Float32() float32</span><br></pre></td></tr></table></figure>
+
+<p>返回一个取值范围在[0.0, 1.0)的伪随机float32值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (r *Rand) Perm(n int) []int</span><br></pre></td></tr></table></figure>
+
+<p>返回一个有n个元素的，[0,n)范围内整数的伪随机排列的切片。</p>
+<h3 id="结构体Zipf"><a href="#结构体Zipf" class="headerlink" title="结构体Zipf"></a>结构体Zipf</h3><p>Zipf生成服从齐普夫分布的随机数。</p>
+<h3 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Int() int &#x2F;&#x2F;返回一个非负的伪随机int值。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Int31() int32</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Intn(n int) int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Float32() float32</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Perm(n int) []int</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="sort库"><a href="#sort库" class="headerlink" title="sort库"></a>sort库</h2><p>sort包提供了排序切片和用户自定义数据集的函数。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Interface interface &#123;</span><br><span class="line">    &#x2F;&#x2F; Len方法返回集合中的元素个数</span><br><span class="line">    Len() int</span><br><span class="line">    &#x2F;&#x2F; Less方法报告索引i的元素是否比索引j的元素小</span><br><span class="line">    Less(i, j int) bool</span><br><span class="line">    &#x2F;&#x2F; Swap方法交换索引i和j的两个元素</span><br><span class="line">    Swap(i, j int)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个满足sort.Interface接口的（集合）类型可以被本包的函数进行排序。方法要求集合中的元素可以被整数索引。</p>
+<h3 id="IntSlice-Float64Slice-StringSlice结构体"><a href="#IntSlice-Float64Slice-StringSlice结构体" class="headerlink" title="IntSlice Float64Slice StringSlice结构体"></a>IntSlice Float64Slice StringSlice结构体</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type IntSlice []int</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Float64Slice []float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type StringSlice []string</span><br></pre></td></tr></table></figure>
+
+<p>以上三个结构体都满足了Interface接口，</p>
+<p>可以使用相应的Sort Search方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (p IntSlice) Sort()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (p IntSlice) Search(x int) int</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h3><p><strong>函数输入参数是Interface类型</strong></p>
+<p>排序函数，接收的类型是Interface</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Sort(data Interface)</span><br></pre></td></tr></table></figure>
+
+<p>Sort排序data。它调用1次data.Len确定长度，调用O(n*log(n))次data.Less和data.Swap。本函数不能保证排序的稳定性（即不保证相等元素的相对次序不变）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Stable(data Interface)</span><br></pre></td></tr></table></figure>
+
+<p>Stable排序data，并保证排序的稳定性，相等元素的相对次序不变。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IsSorted(data Interface) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Reverse(data Interface) Interface</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Search(n int, f func(int) bool) int</span><br></pre></td></tr></table></figure>
+
+<p>Search函数采用二分法搜索找到[0, n)区间内最小的满足f(i)==true的值i。</p>
+<p><strong>输入的参数类型是 []int []float64 []string</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Ints(a []int)</span><br></pre></td></tr></table></figure>
+
+<p>Ints函数将a排序为递增顺序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func IntsAreSorted(a []int) bool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func SearchInts(a []int, x int) int</span><br></pre></td></tr></table></figure>
+
+<p>另外的两个类型都是几乎一样的用法。</p>
+<h2 id="sync包"><a href="#sync包" class="headerlink" title="sync包"></a>sync包</h2><p>sync包提供了基本的同步基元，如互斥锁。除了Once和WaitGroup类型，<strong>大部分都是适用于低水平程序线程，高水平的同步使用channel通信更好一些。</strong></p>
+<p>本包的类型的值不应被拷贝。</p>
+<p>一个重要需要了解的接口Locker，Locker接口代表一个可以加锁和解锁的对象。</p>
+<h3 id="Once结构体"><a href="#Once结构体" class="headerlink" title="Once结构体"></a>Once结构体</h3><p>Once是只执行一次动作的对象。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (o *Once) Do(f func())</span><br></pre></td></tr></table></figure>
+
+<p>Do方法当且仅当第一次被调用时才执行函数f。换句话说，给定变量：</p>
+<p>如果once.Do(f)被多次调用，只有第一次调用会执行f，即使f每次调用Do 提供的f值不同。需要给每个要执行仅一次的函数都建立一个Once类型的实例。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var once sync.Once</span><br><span class="line">onceBody :&#x3D; func() &#123;</span><br><span class="line">    fmt.Println(&quot;Only once&quot;)</span><br><span class="line">&#125;</span><br><span class="line">done :&#x3D; make(chan bool)</span><br><span class="line">for i :&#x3D; 0; i &lt; 10; i++ &#123;</span><br><span class="line">    go func() &#123;</span><br><span class="line">        once.Do(onceBody)</span><br><span class="line">        done &lt;- true</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br><span class="line">for i :&#x3D; 0; i &lt; 10; i++ &#123;</span><br><span class="line">    &lt;-done</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出一次Only once</strong></p>
+<h3 id="Mutex-RWMutex-结构体"><a href="#Mutex-RWMutex-结构体" class="headerlink" title="Mutex RWMutex 结构体"></a>Mutex RWMutex 结构体</h3><p>Mutex是一个互斥锁，可以创建为其他结构体的字段；零值为解锁状态。<strong>Mutex类型的锁和线程无关，可以由不同的线程加锁和解锁。</strong></p>
+<p>RWMutex是读写互斥锁。<strong>该锁可以被同时多个读取者持有或唯一个写入者持有。</strong>RWMutex可以创建为其他结构体的字段；零值为解锁状态。RWMutex类型的锁也和线程无关，可以由不同的线程加读取锁/写入和解读取锁/写入锁。</p>
+<p>两个结构体都拥有Lock() Unlock() 方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (rw *RWMutex) RLock()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (rw *RWMutex) RUnlock()</span><br></pre></td></tr></table></figure>
+
+<p>RLock方法将rw锁定为读取状态，禁止其他线程写入，但不禁止读取。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (rw *RWMutex) RLocker() Locker</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Cond结构体-条件变量"><a href="#Cond结构体-条件变量" class="headerlink" title="Cond结构体 条件变量"></a>Cond结构体 条件变量</h3><p>Cond实现了一个条件变量，一个线程集合地，供线程等待或者宣布某事件的发生。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Cond struct &#123;</span><br><span class="line">    &#x2F;&#x2F; 在观测或更改条件时L会冻结</span><br><span class="line">    L Locker</span><br><span class="line">    &#x2F;&#x2F; 包含隐藏或非导出字段</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func NewCond(l Locker) *Cond</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (c *Cond) Broadcast()</span><br></pre></td></tr></table></figure>
+
+<p>Broadcast唤醒所有等待c的线程。调用者在调用本方法时，建议（但并非必须）保持c.L的锁定。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (c *Cond) Signal()</span><br></pre></td></tr></table></figure>
+
+<p>Signal唤醒等待c的一个线程（如果存在）。调用者在调用本方法时，建议（但并非必须）保持c.L的锁定。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (c *Cond) Wait()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="WaitGroup结构体"><a href="#WaitGroup结构体" class="headerlink" title="WaitGroup结构体"></a>WaitGroup结构体</h3><p>WaitGroup用于等待一组线程的结束。<strong>父线程调用Add方法来设定应等待的线程的数量。每个被等待的线程在结束时应调用Done方法。同时，主线程里可以调用Wait方法阻塞至所有线程结束。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (wg *WaitGroup) Add(delta int)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (wg *WaitGroup) Done()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (wg *WaitGroup) Wait()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="type-pool"><a href="#type-pool" class="headerlink" title="type pool"></a>type pool</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (p *Pool) Get() interface&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (p *Pool) Put(x interface&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="encoding包"><a href="#encoding包" class="headerlink" title="encoding包"></a>encoding包</h2><p>encoding包定义了供其它包使用的可以将<strong>数据在字节水平和文本表示之间转换的接口</strong>。encoding/gob、encoding/json、encoding/xml三个包都会检查使用这些接口。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type BinaryMarshaler interface &#123;</span><br><span class="line">    MarshalBinary() (data []byte, err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type BinaryUnmarshaler interface &#123;</span><br><span class="line">    UnmarshalBinary(data []byte) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现了BinaryMarshaler接口的类型可以将自身序列化为binary格式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type TextMarshaler interface &#123;</span><br><span class="line">    MarshalText() (text []byte, err error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type TextUnmarshaler interface &#123;</span><br><span class="line">    UnmarshalText(text []byte) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现了BinaryMarshaler接口的类型可以将自身序列化为utf-8编码的textual格式。</p>
+<h3 id="encoding-csv包"><a href="#encoding-csv包" class="headerlink" title="encoding/csv包"></a>encoding/csv包</h3><p><strong>重要的结构体Reader Writer</strong></p>
+<p>encoding/hex</p>
+<p>hex包实现了16进制字符表示的编解码。</p>
+<h2 id="encoding-json"><a href="#encoding-json" class="headerlink" title="encoding/json"></a>encoding/json</h2><h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Number string</span><br></pre></td></tr></table></figure>
+
+<p>Number类型代表一个json数字字面量。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func (n Number) Int64() (int64, error)</span><br></pre></td></tr></table></figure>
+
+<p>将该数字作为int64类型返回。还有Float64,string类型</p>
+<h3 id="RawMessage"><a href="#RawMessage" class="headerlink" title="RawMessage"></a>RawMessage</h3><p>type RawMessage []byte</p>
+<p>RawMessage类型是一个保持原本编码的json对象。<strong>本类型实现了Marshaler和Unmarshaler接口</strong>，用于延迟json的解码或者预计算json的编码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Marshaler interface &#123;</span><br><span class="line">    MarshalJSON() ([]byte, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type Unmarshaler interface &#123;</span><br><span class="line">    UnmarshalJSON([]byte) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现了Marshaler接口的类型可以将自身序列化为合法的json描述。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func Marshal(v interface&#123;&#125;) ([]byte, error)</span><br></pre></td></tr></table></figure>
+
+<p>Marshal函数返回v的json编码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bool                   对应JSON布尔类型</span><br><span class="line">float64                对应JSON数字类型</span><br><span class="line">string                 对应JSON字符串类型</span><br><span class="line">[]interface&#123;&#125;          对应JSON数组</span><br><span class="line">map[string]interface&#123;&#125; 对应JSON对象</span><br><span class="line">nil                    对应JSON的null</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Decoder-Encoder结构体"><a href="#Decoder-Encoder结构体" class="headerlink" title="Decoder Encoder结构体"></a>Decoder Encoder结构体</h3><p>Decoder从输入流解码json对象。</p>
+<p>Encoder将json对象写入输出流。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/07/21/GO-%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GO/">GO</a></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/07/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">设计模式学习</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/31/Go语言细节/" title="Go语言细节"><img class="relatedPosts_cover lazyload"data-src="/img/cat.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-31</div><div class="relatedPosts_title">Go语言细节</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
 document.getElementById('utterances_comment').setAttribute('theme',themeNow)
 
 function utterancesTheme () {
@@ -92,4 +1049,4 @@ const message = {
 };
 const iframe = document.querySelector('.utterances-frame');
 iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
