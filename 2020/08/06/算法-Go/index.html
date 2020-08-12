@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>算法 Go | LIN is keeping learning</title><meta name="description" content="算法 Go"><meta name="keywords" content="GO"><meta name="author" content="Lin"><meta name="copyright" content="Lin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="算法 Go"><meta name="twitter:description" content="算法 Go"><meta name="twitter:image" content="http://yoursite.com/img/cat.jpg"><meta property="og:type" content="article"><meta property="og:title" content="算法 Go"><meta property="og:url" content="http://yoursite.com/2020/08/06/%E7%AE%97%E6%B3%95-Go/"><meta property="og:site_name" content="LIN is keeping learning"><meta property="og:description" content="算法 Go"><meta property="og:image" content="http://yoursite.com/img/cat.jpg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/08/06/%E7%AE%97%E6%B3%95-Go/"><link rel="prev" title="云计算" href="http://yoursite.com/2020/08/09/%E4%BA%91%E8%AE%A1%E7%AE%97/"><link rel="next" title="effective java learn" href="http://yoursite.com/2020/08/02/effective-java-learn/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://linbener.github.io","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"爱国,敬业,友善,诚实,自由,平等,和谐","fontSize":"12px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'true',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tou.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">12</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-number">1.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串问题"><span class="toc-number">2.</span> <span class="toc-text">字符串问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组问题"><span class="toc-number">3.</span> <span class="toc-text">数组问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树的问题"><span class="toc-number">4.</span> <span class="toc-text">树的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法匹配"><span class="toc-number">5.</span> <span class="toc-text">算法匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">6.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#海量数据算法处理"><span class="toc-number">7.</span> <span class="toc-text">海量数据算法处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#哈希分治"><span class="toc-number">7.0.1.</span> <span class="toc-text">哈希分治</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#simhash算法"><span class="toc-number">7.0.2.</span> <span class="toc-text">simhash算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外排序"><span class="toc-number">7.0.3.</span> <span class="toc-text">外排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MapReduce"><span class="toc-number">7.0.4.</span> <span class="toc-text">MapReduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多层划分"><span class="toc-number">7.0.5.</span> <span class="toc-text">多层划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#位图"><span class="toc-number">7.0.6.</span> <span class="toc-text">位图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布隆过滤器"><span class="toc-number">7.0.7.</span> <span class="toc-text">布隆过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Trie树"><span class="toc-number">7.0.8.</span> <span class="toc-text">Trie树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库"><span class="toc-number">7.0.9.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#倒排索引"><span class="toc-number">7.0.10.</span> <span class="toc-text">倒排索引</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习"><span class="toc-number">8.</span> <span class="toc-text">机器学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">9.</span> <span class="toc-text">其他</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/cat.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LIN is keeping learning</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">算法 Go</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-08-06 20:28:41"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2020-08-06</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-08-11 17:08:24"><i class="fa fa-history" aria-hidden="true"></i> Updated 2020-08-11</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h2 id="字符串问题"><a href="#字符串问题" class="headerlink" title="字符串问题"></a>字符串问题</h2><p>旋转字符串</p>
+<p>问题描述：将字符串abcdef 输出cdefab</p>
+<p>最佳解法：三步反转发</p>
+<p>解法：字符串分成ab, cdef 两个部分，部分旋转字符串成为ba , fedc , 再将字符串bafedc整体旋转成为cdefab.</p>
+<p>也适用于其他的旋转问题</p>
+<p>字符串包含</p>
+<p>两个字符串DFCEA,DAC </p>
+<p>长字符串是否包含短字符串</p>
+<p>解法可以用一个map存储长字符串，键值为单个字符串，值设置为1，先遍历一遍长字符串，存储在一个map中，再遍历一次短字符串，如果map.get(“key”)的值为0，则表示没有这个字符串。</p>
+<p>但是该算法的空间复杂度为m,时间复杂度为n+m</p>
+<p>改良该算法是用一个签名hash=0代替map, 用位运算生成一个签名</p>
+<p>先遍历长字符串生成一个签名，hash | =(1 &lt;&lt; a[i]-‘A’) </p>
+<p>然后遍历短字符串，在签名中查找字符，及用位运算 if (hash &amp; (1&lt;&lt;b[i]-‘A’) ==0 ) ,如果结果有一次为真，则返回false 。</p>
+<p>字符串转换整数</p>
+<p>“123” 输出 123</p>
+<p>思路是从右边开始遍历，用一个辅助遍历处理位数bit=1, sum=0</p>
+<p>sum + = bit * (‘3’-‘0’) , bit *=10</p>
+<p>具体过程是 3 *1 =3 ; 2 *10 =20, 20+3=23 ; 1 *100=100，100+23=123</p>
+<p>还要判断字符串的是否是空串，正负整数，还要考虑数字溢出</p>
+<p>回文判断</p>
+<p>madam</p>
+<p><strong>同时从字符串的 头部 和 尾部 向中间扫描</strong>，判断头指针和尾指针的字符是否相等</p>
+<p><strong>或者从中间位置 向 两端 扫描</strong></p>
+<p>时间复杂度是n ，空间复杂度是1</p>
+<p>最长回文子串</p>
+<p>给一段字符串adfcgcyt ,其中最长的回文字串是cgc</p>
+<p>回文字串是 以某个字符为中心，字符的前缀和后缀相等，就是回文子串。</p>
+<p>常规的算法是从头部出发，向两端扩展，如果两端的字符相等，则找出了一个回文子串。</p>
+<p>最佳解法是Manacher算法，时间复杂度是N</p>
+<p><strong>它将在字符的两端插入一个特殊字符#，目的是将字符串变成奇数长度</strong></p>
+<p>abba #a#b#b#a# cgc #c#g#c#</p>
+<p>增加了两个变量id,mx 变量id是回文子串的中间位置，mx=id+p[id] ,数组p是以id为中心的回文子串的扩展总长度。</p>
+<p>有一个重要的结论</p>
+<p>mx&gt;i , 那么p[i]&gt;=Min(p[2*id-i],mx-i)</p>
+<p>字符串的全排列</p>
+<p>输入abc</p>
+<p>输出abc,acb,bac,bca,cab,cba</p>
+<p>递归实现</p>
+<p>从集合中选出一个作为第一个元素，然后对剩余的字符进行全排列，如此做递归实现。</p>
+<p>另一种解法是字典排列</p>
+<h2 id="数组问题"><a href="#数组问题" class="headerlink" title="数组问题"></a>数组问题</h2><p>寻找最小的K个数</p>
+<p>数组无序，数组的长度是N</p>
+<p>解法：是维护一个K容量的最大堆，先遍历数组的前K个元素，更新堆内元素，堆的首元素是最大值KMAX，然后遍历数组剩余的N-K个元素，剩余的当前元素设为X，如果X小于KMAX，则用X和KMAX替换，然后更新最大堆，如果当前元素X大于KMAX，则跳过，遍历下一个元素。</p>
+<p>解法：是维护一个K容量的最大堆，先遍历数组的前K个元素，更新堆内元素，堆的</p>
+<p>得益于最大堆的时间复杂度，该算法的时间复杂度为N*logK</p>
+<p>寻找和为定值的两个数</p>
+<p>如果数组有序，可以固定一个值，然后用K2=SUM-K1，在数组中查找是否有这个值，如果有则存在K1+K2=SUM，如果没有，则没有这个组合，查找算法可以才有二分查找的改良算法。</p>
+<p>这个算法的时间复杂度要遍历一次数组和进行N次的二分查找。时间复杂度为NlogN</p>
+<p>也可以采用空间换时间的策略，使用哈希表存储数组元素，时间复杂度下降到了N</p>
+<p>另一种经典解法是用两个指针I，J，各自从两端向中间扫描 I=0 J=N-1</p>
+<p>然后I++ J– 逐步判断a[I]+a[J]?=SUM</p>
+<p>如果某个时刻a[I]+a[J]大于SUM，则要I不动，J减小，如果a[I]+a[J]小于SUM，则让I增加，J不动。</p>
+<p>这个算法要求数组必须是有序的。</p>
+<p>寻找和为定值的多个数</p>
+<p>和为定值的多个数，典型的01背包问题</p>
+<p>如果取的数是4个，值为100，那么可以固定其中的一个数是30，然后问题下降为取3个数，值为100-30=70</p>
+<p>可以采用递归</p>
+<p>最大连续子数组和</p>
+<p>动态规划</p>
+<p>跳台阶</p>
+<p>类似汉诺塔问题，可以得出一个结论</p>
+<p>奇偶排序</p>
+<p>奇数排序偶数的前面，</p>
+<p>经典解法是维护两个指针，向中间扫描</p>
+<p>两个指针分别是F,H，F=-1.H=0，如果H指向的数是奇数，则F++，然后F指向的数和H指向的数交互，H++。</p>
+<p>或者一个指针是头指针，另外一个是尾指针，分别向中间扫描，如果头指针的数是偶数，尾指针的数是奇数，则交互</p>
+<p>荷兰国旗</p>
+<p>一个数组里面有三个颜色的球，分别是红白蓝，要求红色在前面，蓝色的球在后面。</p>
+<p>经典解法是维护三个指针，一个是前指针begin 当前指针current，负责遍历数组，后指针end</p>
+<p>前指针指向数组的首部，后指针指向数组的尾部</p>
+<p>如果当前指针current指向的球是红球，那么current指针和begin指向交互内容,current++ begin++</p>
+<p>如果当前指针current指向的球是篮球，那么current指针和end指向交互内容,current++ end–</p>
+<p>矩阵相乘</p>
+<p>Coppersmith-Winograd算法</p>
+<p>完美洗牌</p>
+<p>走圈算法cycle-leader</p>
+<h2 id="树的问题"><a href="#树的问题" class="headerlink" title="树的问题"></a>树的问题</h2><p>红黑树</p>
+<p>B树</p>
+<p>LCA最近公共祖先问题</p>
+<p>给定一个有根树T，给两个节点V,C，找到一个节点X既是节点V的祖先，也是节点C的祖先</p>
+<h2 id="算法匹配"><a href="#算法匹配" class="headerlink" title="算法匹配"></a>算法匹配</h2><p>数组中有一个数超过了数组的长度的一半</p>
+<p>解法：如果数组是有序的，那么数的出现次数超过了数组长度的一半，那么该数组的N/2的位置一定是该数，所以直接输出该个数字即可。</p>
+<p>如果数组是乱序的</p>
+<p>解法1：可以用哈希表，键是数字，值是数字出现的次数，但这个算法的空间复杂度是N</p>
+<p>解法2：可以遍历数组，如果下标i，和下标i+1的数次不同，这个丢弃这个两个数字，如果两个数字相同，则跳过，那么剩余的数字必定是超过一半的数字</p>
+<p>解法3：是在解法2上更近一步，可以用两个值TEMP，表示保存当前数组遍历到的某个数字，TIME表示当前数字出现的次数。</p>
+<p>TIME的初始值为1，如果遍历到的数字和TEMP保存的相同，那么TIME加 1 ，如果不相同 ，那么TIME减去 1；</p>
+<p>如果TIME的值变成了0，那么TEMP保存下一个数字，并把TIME设置为1.</p>
+<p>加强版问题：数组的中有一个数出现的次数刚好是数组的一半</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>经典问题</p>
+<p>最大连续子串</p>
+<p>字符串编辑距离</p>
+<p>一个字符串为DEST，另一个字符串为SORCE，SOURCE经过不同的操作变成DEST的操作次数即为编辑距离</p>
+<p>操作：删除，插入，替换</p>
+<h2 id="海量数据算法处理"><a href="#海量数据算法处理" class="headerlink" title="海量数据算法处理"></a>海量数据算法处理</h2><h4 id="哈希分治"><a href="#哈希分治" class="headerlink" title="哈希分治"></a>哈希分治</h4><p>为了便于计算机在有限的内存中处理大数据，我们通过一种映射散列的方式让数据均匀分布在对应的内存位置（如大数据通过取余的方式映射成小数据存放在内存中，或大文件映射成多个小文件），而这种映射散列的方式便是我们通常所说的hash 函数，好的hash 函数能让数据均匀分布而减少冲突。</p>
+<p><strong>大体步骤是：1 分而治之/hash映射 2 hashmap统计 3 堆/快速排序</strong></p>
+<p><strong>针对的问题是在成千上万个数据里寻找最热门的单词，或者出现频率最高的数字，等诸如此类的TOP问题。</strong></p>
+<p>例子：海量日志数据，提取出某日访问百度次数最多的那个IP。分析：百度作为国内第一大搜索引擎，每天访问它的IP 数量巨大，如果想一次性把所有IP 数据装进内存处理，则内存容量通常不够，故针对数据太大，内存受限的情况，可以把大文件转化成（取模映射）小文件，从而大而化小，逐个处理。换言之，先映射，而后统计，最后排序。解法：具体分为以下3 个步骤。<br>\1. 分而治之/hash 映射。首先将该日访问百度的所有IP 从访问日志中提取出来，然后逐个写入到一个大文件中，接着采取Hash 映射的方法（比如hash(IP) % 10003），把整个大文件的数据映射到1000 个小文件中。<br>\2. hash_map 统计。当大文件转化成了小文件，那么我们便可以采用hash_map(ip, value)来分别对1000个小文件中的IP 进行频率统计，找出每个小文件中出现频率最大的IP，总共1000 个IP。</p>
+<p>\3. 堆/快速排序。统计出1000 个频率最大的IP 后，依据它们各自频率的大小进行排序（可采取堆排序），找出那个出现频率最大的IP，即为所求。</p>
+<h4 id="simhash算法"><a href="#simhash算法" class="headerlink" title="simhash算法"></a>simhash算法</h4><p><strong>应用范围：去重，文章的相似度</strong></p>
+<p>谷歌用来处理海量文本的去重算法，这个算法最厉害的一点是将整个文档最后转换成为一个64位</p>
+<p>用到的知识点就是 <strong>汉明距离</strong></p>
+<p>作为局部敏感哈希的一种，simhash其主要思想是降维，通过汉明距离来确定文章是否重复或者高度相似。</p>
+<p><strong>大体步骤是：分词，hash，加权，合并，降维</strong></p>
+<p>分词：</p>
+<p>给定一段文本，进行分词，得到有效的特征向量，然后为每个特征向量设置1-5种级别的权重，权者可以是单词的出现次数，数字越大代表越重要。</p>
+<p>比如CSDN(4) 博客(5)</p>
+<p>hash：</p>
+<p>通过哈希函数计算每个特征相邻的hash值，<strong>hash值为二进制数01组成的nbit签名</strong>。</p>
+<p>hash(CSDN)=100101 hash(博客)=101011</p>
+<p>加权：</p>
+<p>在hash值的基础上，给所有特征向量进行加权，即W=HashWeight， <strong>遇到1则和hash值正相乘，遇到0则和权值负向乘。相乘的数是它们分词的权重**</strong></p>
+<p>w(CSDN)=100101 * 4 =4-4-4+4-4+4</p>
+<p>W(博客)=101011 * 5=5-5+5-5+5+5</p>
+<p>合并：</p>
+<p>将一个文章中的所有特征向量的加权结果合并，得到一个数字序列。</p>
+<p>序列=W(CSDN)+W(博客)=4-4-4+4-4+4 + (5-5+5-5+5+5) =9-9+1-1+1+9</p>
+<p>这部的结果是一段文本或者文章最后的结果是64位的数字序列</p>
+<p>降维：</p>
+<p>对于得到的数字序列，如果大于0，对应位结果位1，小于0，对应位结果位0</p>
+<p>所以9-9+1-1+1+9 最后的结果位 1 0 1 0 1 1，这个结果称为 签名。</p>
+<p>然后根据汉明距离计算两篇文章最后得到签名，计算汉明距离。</p>
+<h4 id="外排序"><a href="#外排序" class="headerlink" title="外排序"></a>外排序</h4><p><strong>最常用的策略是排序-归并</strong></p>
+<h4 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h4><h4 id="多层划分"><a href="#多层划分" class="headerlink" title="多层划分"></a>多层划分</h4><h4 id="位图"><a href="#位图" class="headerlink" title="位图"></a>位图</h4><h4 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h4><h4 id="Trie树"><a href="#Trie树" class="headerlink" title="Trie树"></a>Trie树</h4><h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><h4 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h4><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>K近邻算法</p>
+<p>欧式距离 曼哈顿距离 切比雪夫距离 闵可夫斯基距离 标准化欧式距离 马氏距离 巴氏距离 汉明距离</p>
+<p>支持向量机</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>40个亿个数中快速查找</p>
+<p>解法1：用位图算法，如果某个数存在，那么相应位置为1，不存在为0</p>
+<p>解法2：压缩</p>
+<p>一致性哈希算法</p>
+<p>N台服务器，每次用户访问的服务器为Sever[QQNUM%N] ，如果有一台服务器宕机了，那么就会有用户访问的服务器不是原来的那台，因为Sever[QQNUM%N],Sever[QQNUM%(N-1)]的结果不一样</p>
+<p>要求算法：使得服务器宕机了，用户访问的服务器基本还是原来的那台，考虑负载均衡</p>
+<p>改进算法：还是用原来的求余取模算法，原本用于N台服务器，宕机后剩余的服务器为M，先用N取模，如果不落在工作的服务器上，那么N=N-1后，再用N取模，直到N等于M。</p>
+<p>正排索引 倒排索引</p>
+<p>倒排索引是以字或词为关键字进行索引，表中关键字所对应的记录表项记录了出现这个字或词的所有文档。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Lin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/08/06/%E7%AE%97%E6%B3%95-Go/">http://yoursite.com/2020/08/06/%E7%AE%97%E6%B3%95-Go/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GO/">GO</a></div><div class="post_share"><div class="social-share" data-image="/img/cat.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/08/09/%E4%BA%91%E8%AE%A1%E7%AE%97/"><img class="prev_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">云计算</div></div></a></div><div class="next-post pull_right"><a href="/2020/08/02/effective-java-learn/"><img class="next_cover lazyload" data-src="/img/cat.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">effective java learn</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/31/Go语言细节/" title="Go语言细节"><img class="relatedPosts_cover lazyload"data-src="/img/cat.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-31</div><div class="relatedPosts_title">Go语言细节</div></div></a></div><div class="relatedPosts_item"><a href="/2020/07/21/GO-语言标准库学习/" title="GO 语言标准库学习"><img class="relatedPosts_cover lazyload"data-src="/img/cat.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-21</div><div class="relatedPosts_title">GO 语言标准库学习</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><script id="utterances_comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script><script>var themeNow = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+document.getElementById('utterances_comment').setAttribute('theme',themeNow)
+
+function utterancesTheme () {
+var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+const message = {
+  type: 'set-theme',
+  theme: theme
+};
+const iframe = document.querySelector('.utterances-frame');
+iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lin</div><div class="framework-info"><span>Driven </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">简</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/ClickShowText.js"></script></body></html>
